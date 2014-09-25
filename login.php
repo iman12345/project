@@ -73,9 +73,9 @@
               <input class="form-control" type="password" placeholder="Password">
             </div>
           </div>
-          <!--<button type="submit" onclick="window.location='index.php'" class="btn btn-primary col-sm-3 pull-right">Sign in</button>-->
+          <!--<button type="submit" class="btn btn-primary col-sm-3 pull-right">Sign in</button>-->
           <a href="index.php" class="btn btn-primary col-sm-3 pull-right">Sign in</a>
-  	  <div style="margin: 5px 5px -5px 5px;">
+          <div style="margin: 5px 5px -5px 5px;">
           <a href="#" style="color:#fff;" class="pull-right">Forgot Password ?</a>
           <div class="checkbox">
             <label>

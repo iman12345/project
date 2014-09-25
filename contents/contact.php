@@ -1,16 +1,12 @@
 <div id="page-content-wrapper">
   <div class="container-fluid" style="font-size:90%;">
   
-    <a href="#menu-toggle" class="" id="menu-toggle" style="font-size:80%; margin-top:-5%;">
-    	<span id="hand" class="glyphicon glyphicon-hand-left"></span> Show/Hide Menu</a>
-    <br /><br />
-<!-- /. -->
-
-    <div class="page-header" style="margin-top:-20px;">
-      <h1 class="title">Contact Us</h1>
+    <div class="page-header">
+      <h1><small>Contact Us</small></h1>
     </div>
 
 	<div class="row">
+    <div class="col-sm-12 bg-warning" style="box-shadow:0px 0px 20px #888888;">
       <div class="col-sm-6 col-sm-offset-3">
       <div class="">
         <form class="form form-horizontal" role="form">
@@ -62,73 +58,38 @@
         </form>    
       
       </div><!-- /.well well-sm -->
-      </div><!-- /.col-sm-8 col-sm-offset-1 -->
-            
+      </div><!-- /.col-sm-6 col-sm-offset-3 -->
+    </div>        
     </div><!-- /.row -->
+        
+    <!-- /FOOTER -->
+    <hr class="featurette-divider">
     
-    <hr>
+    <footer>
     
     <div class="row">
       <div class="col-sm-3 col-sm-offset-1">
         <h4>Office 1</h4>
         <dl>
-          <dt>Address</dt>
           <dd>&nbsp;Address line 1</dd>
           <dd>&nbsp;Address line 2</dd>
           <dd>&nbsp;City, Country</dd>
-          <dt>Phone</dt>
-          <dd>&nbsp;000-0000000</dd>
-          <dt>Fax</dt>
-          <dd>&nbsp;000-0000000</dd>
-          <dt>E-mail</dt>
-          <dd>&nbsp;office1@office1.com</dd>
+          <dd>&nbsp;Zip code</dd>
+          <dt>&nbsp;</dt>
+          <dd>&nbsp;<span class="glyphicon glyphicon-earphone" title="Phone"></span> : 000-0000000</dd>
+          <dd>&nbsp;<span class="glyphicon glyphicon-phone-alt" title="Fax"></span> : 000-0000000</dd>
+          <dd>&nbsp;<span class="glyphicon glyphicon-envelope" title="E-mail"></span> : office1@office1.com</dd>
         </dl>
       </div><!-- /.col-sm-4 -->
-      <div class="col-sm-3">
-        <h4>Office 2</h4>
-        <dl>
-          <dt>Address</dt>
-          <dd>&nbsp;Address line 1</dd>
-          <dd>&nbsp;Address line 2</dd>
-          <dd>&nbsp;City, Country</dd>
-          <dt>Phone</dt>
-          <dd>&nbsp;000-0000000</dd>
-          <dt>Fax</dt>
-          <dd>&nbsp;000-0000000</dd>
-          <dt>E-mail</dt>
-          <dd>&nbsp;office2@office2.com</dd>
-        </dl>
-      </div><!-- /.col-sm-4 -->
+
+	  <div class="col-sm-2 pull-right">      
+      <p align="right" class="">
+        <a href="#">Back to top <span class="glyphicon glyphicon-circle-arrow-up"></span></a>
+      </p>
+      </div>      
     </div><!-- /.row -->
-    
-    <!-- /FOOTER -->
-    <hr class="featurette-divider">
-    
-    <footer>
-      <p class="pull-right"><a href="#">Back to top</a></p>
-      <p>© 2014 Company, Inc. · <a href="#">Privacy</a> · <a href="#">Terms</a></p>
+      
 	</footer>
 
   </div><!-- /.container-fluid -->
 </div><!-- /.page-content-wrapper -->
-
-<!-- Menu Toggle Script -->
-<script>
-$("#menu-toggle").click(function(e) {
-  e.preventDefault();
-  $("#wrapper").toggleClass("toggled");
-});
-$( "#menu-toggle" ).click(function(){
-	if($( "#hand" ).attr("class") == "glyphicon glyphicon-hand-left"){
-      $( "#hand" ).removeClass("glyphicon glyphicon-hand-left",500);
-	  $( "#hand" ).addClass("glyphicon glyphicon-hand-right",500);
-	}
-	else{
-	  $( "#hand" ).removeClass("glyphicon glyphicon-hand-right",500);
-	  $( "#hand" ).addClass("glyphicon glyphicon-hand-left",500);
-	}
-	  
-      //$( "#hand" ).switchClass( "glyphicon glyphicon-hand-right glyphicon", "glyphicon glyphicon-hand-left glyphicon");
-    });
-
-</script>

@@ -11,7 +11,7 @@
       </button>
       <div class="gallery">
       <a class="navbar-brand" href="#">
-		<img style="width:75px; height:35px;" src="assets/images/logo3.png" class="grayscale" /> Site Name              
+		<img style="width:75px; height:35px;" src="assets/images/logo3.png" class="brightness" /> Site Name              
       </a>
       </div>
     </div>
@@ -36,10 +36,13 @@
       </ul>-->
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Welcome <b>User</b> <span class="caret"></span></a>
+          <a href="#" style="padding:5px 15px;" class="dropdown-toggle" data-toggle="dropdown">
+            <img class="img-circle" src="http://placehold.it/40" />
+            Username, Apartement Name <span class="caret"></span>
+          </a>
           <ul class="dropdown-menu" role="menu">
             <li><a href="#"><span style="margin-right:10px;" class="glyphicon glyphicon-user"></span>My Profile</a></li>
-            <li><a href="#"><span style="margin-right:10px;" class="glyphicon glyphicon-bullhorn"></span>Notifications <small class="badge">42</small></a></li>
+            <li><a href="?ct=notif"><span style="margin-right:10px;" class="glyphicon glyphicon-bullhorn"></span>Notifications <small class="badge">42</small></a></li>
             <li><a href="#"><span style="margin-right:10px;" class="glyphicon glyphicon-cog"></span>Setting</a></li>
             <li class="divider"></li>
             <li><a href="login.php"><span style="margin-right:10px;" class="glyphicon glyphicon-log-out"></span>Log Out</a></li>
@@ -47,13 +50,15 @@
         </li>
       </ul>
       
+      <!--
       <form class="navbar-form navbar-right" role="search">
         <div class="form-group">
           <input type="text" class="form-control" placeholder="Search">
         </div>
         <button type="submit" class="btn btn-default">Submit</button>
       </form>
-
+	  -->
+      
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>

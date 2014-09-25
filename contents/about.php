@@ -1,13 +1,8 @@
 <div id="page-content-wrapper">
   <div class="container-fluid" style="font-size:90%;">
   
-    <a href="#menu-toggle" class="" id="menu-toggle" style="font-size:80%; margin-top:-5%;">
-    	<span id="hand" class="glyphicon glyphicon-hand-left"></span> Show/Hide Menu</a>
-    <br /><br />
-    
-    <div class="page-header" style="margin-top:-20px;">
-      <h1 class="title">About Us</h1>
-      <small>Some brief description.</small>
+    <div class="page-header">
+      <h1><small>About Us</small></h1>
     </div>
 
     <div class="row">
@@ -37,8 +32,9 @@
     <hr class="featurette-divider">
     
     <footer>
-      <p class="pull-right"><a href="#">Back to top</a></p>
-      <p>© 2014 Company, Inc. · <a href="#">Privacy</a> · <a href="#">Terms</a></p>
+      <p class="pull-right">
+        <a href="#">Back to top <span class="glyphicon glyphicon-circle-arrow-up"></span></a>
+      </p>
 	</footer>
 
   </div><!-- /.container-fluid -->
