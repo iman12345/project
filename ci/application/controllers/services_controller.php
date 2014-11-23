@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Services_c extends CI_Controller {
+class Services_controller extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.

@@ -16,7 +16,7 @@
 	  <?php echo anchor('facilities', 'Facilities Management'); ?>
     </li>
     <li class="<?php if($menu == 'events'){ echo "active";} ?>">
-	  <?php echo anchor('events', 'Events'); ?>
+	  <?php echo anchor('events', 'Create Events'); ?>
     </li>
     <!--<li class="<?php if($menu == 'about'){ echo "active";} ?>">
 	  <?php echo anchor('about', 'About Us'); ?>

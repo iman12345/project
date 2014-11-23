@@ -38,19 +38,20 @@
 |
 */
 
-$route['default_controller'] = "HomeController";
+$route['default_controller'] = "Login_controller";
 
-$route['login'] = "HomeController/logOn";
+$route['login'] = "Login_controller";
+$route['logout'] = "Home_controller/logout";
 
-$route['home'] = "HomeController";
-$route['profile'] = "HomeController/profile";
-$route['notifications'] = "HomeController/notif";
+$route['home'] = "Home_controller";
+$route['profile'] = "Home_controller/profile";
+$route['notifications'] = "Home_controller/notif";
 
-$route['facilities'] = "FacilitiesController";
-$route['events'] = "EventsController";
-$route['services'] = "ServicesController";
-$route['about'] = "AboutController";
-$route['contact'] = "ContactController";
+$route['facilities'] = "Facilities_controller";
+$route['events'] = "Events_controller";
+$route['services'] = "Services_controller";
+$route['about'] = "About_controller";
+$route['contact'] = "Contact_controller";
 
 $route['404_override'] = '';
 

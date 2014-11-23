@@ -125,14 +125,14 @@ $(function() {
             <li class="dropdown">
               <a href="#" style="padding:5px 15px;" class="dropdown-toggle" data-toggle="dropdown">
                 <img class="img-circle" src="http://placehold.it/40" />
-                Username, Apartment Name <span class="caret"></span>
+                <?php echo $username; ?>, Apartment Name <span class="caret"></span>
               </a>
               <ul class="dropdown-menu" role="menu">
                 <li><a href="<?php echo site_url(); ?>/profile"><span style="margin-right:10px;" class="glyphicon glyphicon-user"></span>My Profile</a></li>
                 <li><a href="<?php echo site_url(); ?>/notifications"><span style="margin-right:10px;" class="glyphicon glyphicon-bullhorn"></span>Notifications <small class="badge">42</small></a></li>
                 <li><a href="#"><span style="margin-right:10px;" class="glyphicon glyphicon-cog"></span>Setting</a></li>
                 <li class="divider"></li>
-                <li><a href="login"><span style="margin-right:10px;" class="glyphicon glyphicon-log-out"></span>Log Out</a></li>
+                <li><a href="<?php echo site_url(); ?>/logout"><span style="margin-right:10px;" class="glyphicon glyphicon-log-out"></span>Log Out</a></li>
               </ul>
             </li>
           </ul>

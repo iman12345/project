@@ -15,7 +15,7 @@
       <div class="col-sm-8">
         <dl class="dl-horizontal" style="margin-left:-150px;">
           <dt><span class="glyphicon glyphicon-user" data-toggle="tooltip" title="Name"></span></dt>
-          <dd> : User Name</dd>
+          <dd> : User Name <?php echo $query->FIRST_NAME; ?></dd>
           <dt><span class="glyphicon glyphicon-home" data-toggle="tooltip" title="Apartment"></span></dt>
           <dd> : Apartment Name</dd>
           <dt><span class="glyphicon glyphicon-earphone" data-toggle="tooltip" title="Name"></span></dt>
