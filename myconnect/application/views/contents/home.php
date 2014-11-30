@@ -20,20 +20,22 @@
           <div class="col-sm-4"><span style="background-color:#357EBD;">&nbsp;&nbsp;</span> - Building Management Information</div>
           <div class="col-sm-4"><span style="background-color:#EEA236;">&nbsp;&nbsp;</span> - Neighborhood News</div>
         </div>-->
-
 		<hr />
-        <div class="blockquote-box blockquote-danger clearfix">
-          <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula</p>
-        </div>
-        <div class="blockquote-box blockquote-primary clearfix">
-          <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula</p>
-        </div>
-        <div class="blockquote-box blockquote-primary clearfix">
-          <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula</p>
-        </div>
-        <div class="blockquote-box blockquote-warning clearfix">
-          <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula</p>
-        </div>
+        <?php foreach($announcements as $row){ ?>
+			<?php if($row->TYPE == 'BUILD_MANAGE'): ?>
+                <div class="blockquote-box blockquote-primary clearfix">
+                  <p><strong><?php echo $row->NAME; ?></strong> - <?php echo $row->DESCRIPTION; ?></p>
+                </div>
+            <?php elseif($row->TYPE == 'NEIGHBORHOOD'): ?>
+                <div class="blockquote-box blockquote-warning clearfix">
+                  <p><strong><?php echo $row->NAME; ?></strong> - <?php echo $row->DESCRIPTION; ?></p>
+                </div>
+            <?php else: ?>
+                <div class="blockquote-box blockquote-danger clearfix">
+                  <p><strong><?php echo $row->NAME; ?></strong> - <?php echo $row->DESCRIPTION; ?></p>
+                </div>
+            <?php endif; ?>
+		<?php } ?>
                 
       </div><!-- /.col-sm-9 -->
 
@@ -44,6 +46,16 @@
             <strong>Promotions</strong>
             <a href="#" class="pull-right">See all</a>
           </span>
+          <!------------------------------------->
+          <?php foreach($promotions as $row){ ?>
+          	<a href="#" class="list-group-item">
+            <img src="data:image/jpeg;base64,<?php echo base64_encode($row->IMAGE); ?>" alt="title1" class="img-responsive" style="">
+            <h4 class="text-center"><?php echo $row->NAME; ?></h4>
+            <p class="text-center"><?php echo $row->DESCRIPTION; ?></p>
+          </a>
+          <?php } ?>
+          <!------------------------------------->
+          <!--
           <a href="#" class="list-group-item">
             <img src="http://placehold.it/250x200" alt="title1" class="img-responsive" style="">
             <h4 class="text-center">Heading</h4>
@@ -54,13 +66,24 @@
             <h4 class="text-center">Heading</h4>
             <p class="text-center">Duis mollis, est non commodo luctus, nisi erat porttitor ligula</p>
           </a>
+        -->
         </div>
-      
+        
         <div class="list-group">
           <span class="list-group-item">
             <strong>Local Services</strong>
             <a href="#" class="pull-right">See all</a>
           </span>
+          <!------------------------------------->
+          <?php foreach($services as $row){ ?>
+          	<a href="#" class="list-group-item">
+            <img src="http://placehold.it/250x200" alt="title1" class="img-responsive" style="">
+            <h4 class="text-center"><?php echo $row->NAME; ?></h4>
+            <p class="text-center"><?php echo $row->DESCRIPTION; ?></p>
+          </a>
+          <?php } ?>
+          <!------------------------------------->
+          <!--
           <a href="#" class="list-group-item">
             <img src="http://placehold.it/250x200" alt="title1" class="img-responsive" style="">
             <h4 class="text-center">Heading</h4>
@@ -71,6 +94,7 @@
             <h4 class="text-center">Heading</h4>
             <p class="text-center">Duis mollis, est non commodo luctus, nisi erat porttitor ligula</p>
           </a>
+          -->
         </div>
         
       </div><!-- /.col-sm-3 -->

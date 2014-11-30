@@ -45,8 +45,9 @@ class Loginauth_controller extends CI_Controller {
 		 foreach($result as $row)
 		 {
 		   $sess_array = array(
-			 'id' => $row->ID,
-			 'username' => $row->USER
+			 'id' => $row->ID
+			 ,'username' => $row->USER
+			 ,'apartment' => $row->APARTMENT_ID
 		   );
 		   $this->session->set_userdata('logged_in', $sess_array);
 		 }

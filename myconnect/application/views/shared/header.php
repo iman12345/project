@@ -114,7 +114,7 @@ $(function() {
           </button>
           <div class="gallery">
           <a class="navbar-brand" href="home">
-            <img style="width:75px; height:35px;" src="<?php echo base_url(); ?>assets/images/logo.png" class="brightness" /> Site Name              
+            <img style="width:75px; height:35px;" src="<?php echo base_url(); ?>assets/images/logo.png" class="brightness" /> MyConnect             
           </a>
           </div>
         </div>
@@ -125,7 +125,7 @@ $(function() {
             <li class="dropdown">
               <a href="#" style="padding:5px 15px;" class="dropdown-toggle" data-toggle="dropdown">
                 <img class="img-circle" src="http://placehold.it/40" />
-                <?php echo $username; ?>, Apartment Name <span class="caret"></span>
+                <?php echo $user->FULL_NAME; ?>, <?php echo $apartment->NAME; ?> <span class="caret"></span>
               </a>
               <ul class="dropdown-menu" role="menu">
                 <li><a href="<?php echo site_url(); ?>/profile"><span style="margin-right:10px;" class="glyphicon glyphicon-user"></span>My Profile</a></li>

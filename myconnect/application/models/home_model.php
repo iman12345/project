@@ -15,12 +15,43 @@ class Home_model extends CI_Model {
 	function get_profile()
     {
 		$session_data = $this->session->userdata('logged_in');
-		$data['id'] = $session_data['id'];
-		$this->db->where('ID',1);
+		$id = $session_data['id'];
+		$this->db->where('ID',$id);
         $query = $this->db->get('profiles');
         return $query->row();
     }
+	
+	function get_apartment()
+    {
+		$session_data = $this->session->userdata('logged_in');
+		$id = $session_data['apartment'];
+		$this->db->where('ID',$id);
+        $query = $this->db->get('apartments');
+        return $query->row();
+    }
 
+	function get_announcements()
+	{
+		$query = $this->db->get('announcements');
+		return $query->result();
+	}
+	
+	function get_latest_promotions()
+	{
+		$this->db->where('TYPE','PROMO');
+		$this->db->order_by('DATE', 'DESC');
+		$query = $this->db->get('promos_local_services',2);
+		return $query->result();
+	}
+	
+	function get_latest_services()
+	{
+		$this->db->where('TYPE','LOCAL_SERVICES');
+		$this->db->order_by('DATE', 'DESC');
+		$query = $this->db->get('promos_local_services',2);
+		return $query->result();
+	}
+	
     function insert_entry()
     {
         $this->title   = $_POST['title']; // please read the below note
