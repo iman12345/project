@@ -6,9 +6,9 @@
 <!-- Sidebar -->
 <div id="sidebar-wrapper">
   <ul class="sidebar-nav">
-    <!--<li class="<?php if($menu == 'home'){ echo "active";} ?>">
+    <li class="<?php if($menu == 'home'){ echo "active";} ?>">
 	  <?php echo anchor('home', 'Dashboard'); ?>
-    </li>-->
+    </li>
     <li class="<?php if($menu == 'services'){ echo "active";} ?>">
 	  <?php echo anchor('services', 'Maintenance Services'); ?>
     </li>

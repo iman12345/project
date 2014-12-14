@@ -1,11 +1,11 @@
 <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/carousel-mini.css"/>
 
-<style>
-</style>
-
 <div id="page-content-wrapper">
   <div class="container-fluid" style="font-size:90%;">
-        
+    
+    <div class="row">
+      <div class="col-sm-10">
+      
     <div class="page-header">
       <h1>
         <small>Maintenance Services</small>
@@ -112,18 +112,8 @@
 	</div>
     <!-- /END THE FEATURETTES -->
     
-    <!-- /FOOTER -->
-    <hr class="featurette-divider">
-    
-    <footer>
-      <p class="pull-right">
-        <a href="#">Back to top <span class="glyphicon glyphicon-circle-arrow-up"></span></a>
-      </p>
-	</footer>
-    
-  </div><!-- /.container-fluid -->
-</div><!-- /.page-content-wrapper -->
-      
+</div><!-- /.col-sm-10 -->
+              
 <script>
 	
 	$('#serviceCarousel').carousel({

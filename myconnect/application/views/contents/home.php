@@ -15,11 +15,6 @@
           <li><span style="background-color:#357EBD;">&nbsp;&nbsp;</span> - Building Management Information</li>
           <li><span style="background-color:#EEA236;">&nbsp;&nbsp;</span> - Neighborhood News</li>
         </ul>
-        <!--<div class="row">
-          <div class="col-sm-2 col-sm-offset-1"><span style="background-color:#D43F3A;">&nbsp;&nbsp;</span> - Notification</div>
-          <div class="col-sm-4"><span style="background-color:#357EBD;">&nbsp;&nbsp;</span> - Building Management Information</div>
-          <div class="col-sm-4"><span style="background-color:#EEA236;">&nbsp;&nbsp;</span> - Neighborhood News</div>
-        </div>-->
 		<hr />
         <?php foreach($announcements as $row){ ?>
 			<?php if($row->TYPE == 'BUILD_MANAGE'): ?>
@@ -37,7 +32,7 @@
             <?php endif; ?>
 		<?php } ?>
                 
-      </div><!-- /.col-sm-9 -->
+      </div><!-- /.col-sm-10 -->
 
       <div class="col-sm-2" style="padding:0;">
       
@@ -54,19 +49,6 @@
             <p class="text-center"><?php echo $row->DESCRIPTION; ?></p>
           </a>
           <?php } ?>
-          <!------------------------------------->
-          <!--
-          <a href="#" class="list-group-item">
-            <img src="http://placehold.it/250x200" alt="title1" class="img-responsive" style="">
-            <h4 class="text-center">Heading</h4>
-            <p class="text-center">Duis mollis, est non commodo luctus, nisi erat porttitor ligula</p>
-          </a>
-          <a href="#" class="list-group-item">
-            <img src="http://placehold.it/250x200" alt="title1" class="img-responsive" style="">
-            <h4 class="text-center">Heading</h4>
-            <p class="text-center">Duis mollis, est non commodo luctus, nisi erat porttitor ligula</p>
-          </a>
-        -->
         </div>
         
         <div class="list-group">
@@ -82,36 +64,9 @@
             <p class="text-center"><?php echo $row->DESCRIPTION; ?></p>
           </a>
           <?php } ?>
-          <!------------------------------------->
-          <!--
-          <a href="#" class="list-group-item">
-            <img src="http://placehold.it/250x200" alt="title1" class="img-responsive" style="">
-            <h4 class="text-center">Heading</h4>
-            <p class="text-center">Duis mollis, est non commodo luctus, nisi erat porttitor ligula</p>
-          </a>
-          <a href="#" class="list-group-item">
-            <img src="http://placehold.it/250x200" alt="title1" class="img-responsive" style="">
-            <h4 class="text-center">Heading</h4>
-            <p class="text-center">Duis mollis, est non commodo luctus, nisi erat porttitor ligula</p>
-          </a>
-          -->
         </div>
         
-      </div><!-- /.col-sm-3 -->
-      
-    </div><!-- /.row -->
-    
-    <!-- FOOTER -->
-    <hr class="featurette-divider" />
-    
-    <footer>
-      <p class="pull-right">
-        <a href="#">Back to top <span class="glyphicon glyphicon-circle-arrow-up"></span></a>
-      </p>
-    </footer>
-  
-  </div><!-- /.container-fluid -->
-</div><!-- /#page-content-wrapper -->
+      </div><!-- /.col-sm-2 -->
 
 <script>
 

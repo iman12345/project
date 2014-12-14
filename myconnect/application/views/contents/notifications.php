@@ -2,14 +2,13 @@
 <!-- Page Content -->
   <div class="container-fluid" style="font-size:90%;">
    
-	<!-- HEADER -->
-    <div class="page-header">
-      <h1><small>Notifications</small></h1>
-    </div>
-    
-    <!-- BODY -->
     <div class="row">
-      <div class="col-sm-12">
+      <div class="col-sm-10">
+      
+        <div class="page-header">
+          <h1><small>Notifications</small></h1>
+        </div>
+      
         <table class="table table-striped table-hover" id="notif">
           <thead>
             <tr class="info">
@@ -52,20 +51,7 @@
             </tr>
           </tfoot>
         </table>
-      </div><!-- /.col-sm-12 -->
-    </div><!-- /.row -->
-
-    <!-- FOOTER --><!-- /. -->
-    <hr class="featurette-divider" />
-    
-    <footer>
-      <p class="pull-right">
-        <a href="#">Back to top <span class="glyphicon glyphicon-circle-arrow-up"></span></a>
-      </p>
-	</footer>
-  
-  </div><!-- /.container-fluid -->
-</div><!-- /#page-content-wrapper -->
+      </div><!-- /.col-sm-10 -->
 
 <div id="dialog-form" title="Notification">
     

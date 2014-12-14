@@ -122,6 +122,13 @@ $(function() {
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
+            <li>
+              <a href="<?php echo site_url(); ?>/notifications">
+                <span class="glyphicon glyphicon-bell" style="font-size:1.5em; padding:0; margin:0;" aria-hidden="true"></span>
+                <sup class="badge">42</sup>
+              </a>
+            </li>
+            
             <li class="dropdown">
               <a href="#" style="padding:5px 15px;" class="dropdown-toggle" data-toggle="dropdown">
                 <img class="img-circle" src="http://placehold.it/40" />

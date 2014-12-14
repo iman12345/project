@@ -3,6 +3,9 @@
 <div id="page-content-wrapper">
   <div class="container-fluid" style="font-size:90%;">
   
+  <div class="row">
+    <div class="col-sm-10">
+  
     <div class="page-header">
       <h1>
         <small>Events</small>
@@ -81,19 +84,8 @@
 	</div>
     
     <!-- /END THE FEATURETTES -->
+    </div><!-- /.col-sm-10 -->
     
-    <!-- /FOOTER -->
-    <hr class="featurette-divider">
-    
-    <footer>
-      <p class="pull-right">
-        <a href="#">Back to top <span class="glyphicon glyphicon-circle-arrow-up"></span></a>
-      </p>
-	</footer>
-
-  </div><!-- /.container-fluid -->
-</div><!-- /.page-content-wrapper -->
-
 <!-- Modal -->
 <div class="modal fade" id="bookModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
