@@ -1,9 +1,9 @@
-<div class="col-sm-2 pull-right" style="padding:0;">
+<div class="col-sm-2" style="padding:0;">
       
     <div class="list-group">
       <span class="list-group-item">
         <strong>Promotions</strong>
-        <a href="#" class="pull-right">See all</a>
+        <?php echo anchor('promotions', 'See all', 'class="pull-right"'); ?>
       </span>
       <!------------------------------------->
       <?php foreach($promotions as $row){ ?>
@@ -31,7 +31,7 @@
     <div class="list-group">
       <span class="list-group-item">
         <strong>Local Services</strong>
-        <a href="#" class="pull-right">See all</a>
+        <?php echo anchor('local-services', 'See all', 'class="pull-right"'); ?>
       </span>
       <!------------------------------------->
       <?php foreach($services as $row){ ?>

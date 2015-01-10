@@ -14,7 +14,7 @@
         </button>
       </h1>
     </div>
-    
+        
     <!-- content table -->
       <table id="myTable" class="table table-striped table-responsive table-hover"> 
         <thead> 
@@ -52,76 +52,9 @@
           </tr> 
         </tbody> 
   	  </table> 
-      
-    <hr class="featurette-divider" />  
-	<div>
-    <!-- CAROUSEL -->
-    <div class="row">
-      <div class="col-sm-12">
-        <div id="serviceCarousel" class="carousel slide">
-          <!-- Carousel items -->
-            <div class="carousel-inner">
-              <?php for($i=0;$i<4;$i++){ ?><!-- Create 4 slides -->
-              <div class="item <?php if($i==0) echo "active"; ?>">
-                <div class="row">
-                  <?php for($j=0;$j<4;$j++){ ?><!-- make 4 items per slide -->
-                  <div class="col-sm-3">
-                    <a href="#" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" class="img-responsive"></a>
-                    <div class="container">
-                      <div class="carousel-caption">
-                        <h3>TITLE <?php echo $i." ".$j; ?></h3>
-                      </div><!-- /.carousel-caption -->
-                    </div><!-- /.container -->
-                  </div><!-- /.col-sm-6 col-xs-12 -->
-                  <?php } ?> 
-                </div><!-- /.row -->
-              </div><!-- /.item -->
-              <?php } ?>   
-            </div><!-- /.carousel-inner --> 
-            <a class="left carousel-control" href="#serviceCarousel" data-slide="prev"><i class="glyphicon glyphicon-chevron-left glyphicon-4"></i></a>
-            <a class="right carousel-control" href="#serviceCarousel" data-slide="next"><i class="glyphicon glyphicon-chevron-right glyphicon-4"></i></a>
-        </div><!-- /#serviceCarousel -->
-	  </div><!-- /.col-md-2 -->
-    </div><!-- /.row -->
-    <!-- CAROUSEL END -->
-    </div>
-    
-    <!-- START THE FEATURETTES -->
-	<hr class="featurette-divider">
-
-    <div class="row featurette">
-        <div class="col-md-7">
-          <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It'll blow your mind.</span></h2>
-          <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-        </div>
-        <div class="col-md-5">
-          <img class="featurette-image img-responsive" data-src="holder.js/500x500/auto" alt="500x500" src="http://placehold.it/500">
-        </div>
-    </div>
-
-	<hr class="featurette-divider">
-
-	<div class="row featurette">
-        <div class="col-md-5">
-          <img class="featurette-image img-responsive" data-src="holder.js/500x500/auto" alt="500x500" src="http://placehold.it/500">
-        </div>
-        <div class="col-md-7">
-          <h2 class="featurette-heading">Oh yeah, it's that good. <span class="text-muted">See for yourself.</span></h2>
-          <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-		</div>
-	</div>
-    <!-- /END THE FEATURETTES -->
-    
+          
 </div><!-- /.col-sm-10 -->
               
-<script>
-	
-	$('#serviceCarousel').carousel({
-		interval: 5000
-	});
-
-</script>
-
 <!-- Modal -->
 <div class="modal fade" id="bookModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -146,37 +79,41 @@
             </div>
           </div>
           <div class="form-group">
-            <label for="caption" class="col-sm-3 control-label" style="text-align:left;">Date Submitted</label>
+            <label for="servicesDate" class="col-sm-3 control-label" style="text-align:left;">Date Submitted</label>
             <div class="col-sm-8">
-              <input type="text" class="form-control" id="caption" placeholder="Input your caption here...">
+              <input type="text" class="form-control" id="servicesDate" placeholder="mm/dd/yyyy" title="format : mm/dd/yyyy">
             </div>
           </div>
-        </form>
-            
-        <form role="form">
           <div class="form-group">
-            <label for="inputType">Type</label>
-            <select name="service_type" class="form-control">
+            <label for="servicesType" class="col-sm-3 control-label" style="text-align:left;">Type</label>
+            <div class="col-sm-8">
+            <select name="servicesType" class="form-control">
               <option>-- Select a service type --</option>
             </select>
-          </div>
-          <div class="form-group">
-            <label for="inputDate">Date</label>
-            <input type="text" class="form-control datepicker" id="inputDate" placeholder="mm/dd/yyyy" title="format : mm/dd/yyyy">
-          </div>
-          <div class="form-group">
-            <label for="inputImg">Image</label>
-            <div class="row">
-              <input type="file" id="inputImg" class="col-sm-5" name="image" />
-              <div id="imagePreview" class="col-sm-5 col-sm-offset-1"></div>
             </div>
+          </div>
+          <div class="form-group">
+            <label for="serviceImg" class="col-sm-3 control-label" style="text-align:left;">Image</label>
+            <div class="col-sm-8">
+              <input type="file" id="inputImg" name="image" class="btn btn-default" />
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-4 col-sm-offset-4">
+              <div id="imagePreview" class="img-thumbnail"></div>
             <p class="help-block">type : .jpg .png</p>
+            </div>
           </div>
+             
           <div class="form-group text-right">
-            <button type="submit" class="btn btn-success">Submit</button>
-            <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
+            <div class="col-sm-12">
+              <button type="submit" class="btn btn-success">Submit</button>
+              <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
+            </div>
           </div>
-        </form>      
+
+        </form>
+        
       </div><!-- /.modal-body -->
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
@@ -196,7 +133,7 @@ $( "#dialog-close" ).click(function() {
 	$( "#dialog-form" ).dialog( "close" );
 });	
 
-$(".datepicker").datepicker({
+$("#servicesDate").datepicker({
 });
 
 $("#inputImg").on("change", function(){

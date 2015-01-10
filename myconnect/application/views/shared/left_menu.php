@@ -1,6 +1,6 @@
 <div class="menu-toggle">
   <a href="#menu-toggle" class="" id="menu-toggle">
-    <span id="hand" class="glyphicon glyphicon-chevron-left"></span></a>
+    <span id="hand" class=""></span></a>
 </div>
 
 <!-- Sidebar -->
@@ -25,13 +25,24 @@
 	  <?php echo anchor('contact', 'Contact Us'); ?>
     </li>-->
   </ul>
-
+  
+  <div class="copyright" style="margin-right:20px; margin-bottom:50px;">
+  	<div id="menuDate"></div>
+  </div>
+  
   <div class="copyright">
     <p>© 2014 Company, Inc. · <a href="#">Privacy</a> · <a href="#">Terms</a></p>
   </div>
 </div><!-- /#sidebar-wrapper -->
     
 <script>
+
+if($(window).width() >= 768){
+	$( "#hand" ).addClass("glyphicon glyphicon-chevron-left");
+}
+else {
+	$( "#hand" ).addClass("glyphicon glyphicon-chevron-right");	
+}
 
 	$("#menu-toggle").click(function(e) {
   		e.preventDefault();
@@ -47,6 +58,10 @@
 			$( "#hand" ).removeClass("glyphicon glyphicon-chevron-right");
 			$( "#hand" ).addClass("glyphicon glyphicon-chevron-left");
 		}  
+	});
+	
+	$('#menuDate').datepicker({
+		todayHighlight:true
 	});
 	
 </script>

@@ -6,15 +6,13 @@
     <div class="col-sm-10">
 
     <div class="page-header">
-      <h1><small>Facilities</small></h1>
+      <h1><small>Facilities</small>
+        <button style="margin-top:-5px;" type="button" class="btn btn-success btn-md pull-right" data-toggle="modal" data-target="#bookModal">
+          <span class="glyphicon glyphicon-calendar"></span> Book a facility
+        </button>
+      </h1>
     </div>
-    
-    <button style="margin-top:-5px;" type="button" class="btn btn-success btn-block" data-toggle="modal" data-target="#bookModal">
-      <span class="glyphicon glyphicon-calendar"></span> Book a facility
-    </button>
-    
-    <hr />
-    
+            
     <div class="well well-sm">
         <div class="row">
           <div class="col-sm-3"><span style="background-color:red;">&nbsp;&nbsp;</span> - Badminton Court</div>
@@ -24,7 +22,7 @@
         </div>
     </div>
 	
-	<iframe src="<?php echo base_url(); ?>08_time_scale.html" width="100%" height="1000" frameborder="0"></iframe>
+	<iframe src="<?php echo base_url(); ?>facilities_cal.html" width="100%" height="800" frameborder="0"></iframe>
     
   </div><!-- /.col-sm-10 -->
   
@@ -46,10 +44,12 @@
             <label for="inputCaption">Caption</label>
             <input type="text" class="form-control" id="inputCaption" placeholder="">
           </div>
+          
           <div class="form-group">
             <label for="inputDate">Date</label>
-            <input type="text" class="form-control datepicker" id="inputDate" placeholder="">
+            <input type="text" class="form-control" id="facilitiesDate" placeholder="">
           </div>
+          
           <div class="form-group">
             <label for="inputDate">Time</label><br />
             <div class="col-sm-6">
@@ -80,6 +80,6 @@
 
 <script>
 
-$(".datepicker").datepicker();
+$("#facilitiesDate").datepicker();
 
 </script>

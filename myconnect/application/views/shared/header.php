@@ -13,6 +13,8 @@
 <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/bootstrap.js"></script>
 <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/jquery-ui.js"></script>
 
+<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/bootstrap-datepicker.js"></script>
+
 <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/jquery.dataTables.js"></script>
   
 <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/bootstrap.css"/>
@@ -20,8 +22,11 @@
 <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/jquery-ui.theme.css"/>
 <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/jquery.dataTables.css"/>
 
+<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/sidebar.css"/>
+<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/datepicker3.css"/>
 <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/msform.css"/>
 <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/gallery-effect.css"/>
+<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/wireframe.css"/>
 
 <!-- Chart -->
 <script type="text/javascript" src="assets/js/highcharts.js"></script>

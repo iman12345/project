@@ -58,6 +58,26 @@ class Home_controller extends CI_Controller {
 		$this->load->view('shared/footer');
 	}
 	
+	public function promotions()
+	{
+		$data['promotions'] = $this->home->get_latest_promotions();
+		$data['services'] = $this->home->get_latest_services();
+		
+		$this->load->view('contents/promotions',$data);
+		$this->load->view('shared/right_menu');
+		$this->load->view('shared/footer');
+	}
+	
+	public function local()
+	{
+		$data['promotions'] = $this->home->get_latest_promotions();
+		$data['services'] = $this->home->get_latest_services();
+		
+		$this->load->view('contents/local-services',$data);
+		$this->load->view('shared/right_menu');
+		$this->load->view('shared/footer');
+	}
+	
 	function logout()
 	{
 		$this->session->unset_userdata('logged_in');
