@@ -39,7 +39,7 @@
           <div class="form-group">
             <div class="input-group">
               <div class="input-group-addon"><span class="glyphicon glyphicon-user"></span></div>
-              <input name="username" id="username" class="form-control" type="email" placeholder="Username">
+              <input name="username" id="username" class="form-control" type="text" placeholder="Username">
             </div>
           </div>
           
