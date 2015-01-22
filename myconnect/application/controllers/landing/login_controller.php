@@ -6,14 +6,14 @@ class Login_controller extends CI_Controller {
 	{
 		
 		$this->load->helper(array('form'));
-		$this->load->view('login');
+		$this->load->view('landing/login');
 		
 	}
 		
 	public function auth()
 	{
 		
-		redirect('/login/form/', 'refresh');
+		redirect('landing/login/form/', 'refresh');
 	
 	}
 

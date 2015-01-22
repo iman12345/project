@@ -6,8 +6,8 @@
 <!-- Sidebar -->
 <div id="sidebar-wrapper">
   <ul class="sidebar-nav">
-    <li class="<?php if($menu == 'home'){ echo "active";} ?>">
-	  <?php echo anchor('home', 'Dashboard'); ?>
+    <li class="<?php if($menu == 'dashboard'){ echo "active";} ?>">
+	  <?php echo anchor('dashboard', 'Dashboard'); ?>
     </li>
     <li class="<?php if($menu == 'services'){ echo "active";} ?>">
 	  <?php echo anchor('services', 'Maintenance Services'); ?>
@@ -17,6 +17,9 @@
     </li>
     <li class="<?php if($menu == 'events'){ echo "active";} ?>">
 	  <?php echo anchor('events', 'Create Events'); ?>
+    </li>
+    <li class="<?php if($menu == 'analytics'){ echo "active";} ?>">
+	  <?php echo anchor('analytics', 'Analytics'); ?>
     </li>
     <!--<li class="<?php if($menu == 'about'){ echo "active";} ?>">
 	  <?php echo anchor('about', 'About Us'); ?>

@@ -38,22 +38,23 @@
 |
 */
 
-$route['default_controller'] = "Login_controller";
+$route['default_controller'] = "landing/Login_controller";
 
-$route['login'] = "Login_controller";
-$route['logout'] = "Home_controller/logout";
+$route['login'] = "landing/Login_controller";
+$route['logout'] = "dashboard/Dashboard_controller/logout";
 
-$route['home'] = "Home_controller";
-$route['profile'] = "Home_controller/profile";
-$route['notifications'] = "Home_controller/notif";
-$route['promotions'] = "Home_controller/promotions";
-$route['local-services'] = "Home_controller/local";
+$route['dashboard'] = "dashboard/Dashboard_controller";
+$route['profile'] = "dashboard/Dashboard_controller/profile";
+$route['notifications'] = "dashboard/Dashboard_controller/notif";
+$route['promotions'] = "dashboard/Dashboard_controller/promotions";
+$route['local-services'] = "dashboard/Dashboard_controller/local";
 
-$route['facilities'] = "Facilities_controller";
-$route['events'] = "Events_controller";
-$route['services'] = "Services_controller";
-$route['about'] = "About_controller";
-$route['contact'] = "Contact_controller";
+$route['facilities'] = "facilities/Facilities_controller";
+$route['events'] = "events/Events_controller";
+$route['services'] = "services/Services_controller";
+$route['analytics'] = "analytics/Analytics_controller";
+$route['about'] = "about/About_controller";
+$route['contact'] = "contact/Contact_controller";
 
 $route['404_override'] = '';
 

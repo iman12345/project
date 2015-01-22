@@ -32,7 +32,7 @@
       <?php 
 	  	echo validation_errors(); 
 	  	$attributes = array('class' => 'form-login form-inline', 'id' => 'myform', 'role' => 'form');
-	  	echo form_open('loginauth_controller', $attributes); 
+	  	echo form_open('landing/loginauth_controller', $attributes); 
 	  ?>
         <!--<form class="form-login form-inline" role="form">-->
         

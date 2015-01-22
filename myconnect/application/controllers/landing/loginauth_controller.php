@@ -5,9 +5,7 @@ class Loginauth_controller extends CI_Controller {
 	function __construct() {
         parent::__construct();
         //load session and connect to database
-        $this->load->model('login_model','login',TRUE);
-        $this->load->helper(array('form', 'url','html'));
-        $this->load->library(array('form_validation','session'));
+        $this->load->model('landing/login_model','login',TRUE);
     }
 	
 	function index() {
@@ -16,7 +14,7 @@ class Loginauth_controller extends CI_Controller {
  
         if($this->form_validation->run() == FALSE) 
 		{
-            $this->load->view('login');
+            $this->load->view('landing/login');
         } 
 		else 
 		{
@@ -26,7 +24,7 @@ class Loginauth_controller extends CI_Controller {
 			//);
 			//$this->session->set_userdata('logged_in', $sess_array);
             //Go to private area
-            redirect('home', 'refresh');
+            redirect('dashboard', 'refresh');
         }   
 			    
      }
@@ -46,7 +44,7 @@ class Loginauth_controller extends CI_Controller {
 		 {
 		   $sess_array = array(
 			 'id' => $row->ID
-			 ,'username' => $row->USER
+			 ,'username' => $row->USER_NAME
 			 ,'apartment' => $row->APARTMENT_ID
 		   );
 		   $this->session->set_userdata('logged_in', $sess_array);
