@@ -9,17 +9,8 @@
 
 <link rel="shortcut icon" href="<?php echo base_url(); ?>assets/images/icon2.ico" />
 
-<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/jquery.js"></script>
-<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/bootstrap.js"></script>
-<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/jquery-ui.js"></script>
-
-<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/bootstrap-datepicker.js"></script>
-
-<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/jquery.dataTables.js"></script>
-  
+<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/myconnect.css"/>  
 <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/bootstrap.css"/>
-<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/jquery-ui.css"/>
-<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/jquery-ui.theme.css"/>
 <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/jquery.dataTables.css"/>
 
 <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/sidebar.css"/>
@@ -28,9 +19,19 @@
 <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/gallery-effect.css"/>
 <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/wireframe.css"/>
 
+<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/jquery.js"></script>
+<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/bootstrap.js"></script>
+<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/bootstrap-datepicker.js"></script>
+<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/jquery.dataTables.js"></script>
+
 <!-- Chart -->
 <script type="text/javascript" src="assets/js/highcharts.js"></script>
 <script type="text/javascript" src="assets/js/modules/exporting.js"></script>
+
+<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/morrisjs/morris.css"/>
+<!-- Morris Charts JavaScript -->
+<script src="<?php echo base_url(); ?>assets/raphael/raphael.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/morrisjs/morris.min.js"></script>
 
 <!-- Scheduler -->
 <script src='<?php echo base_url(); ?>assets/codebase/dhtmlxscheduler.js' type="text/javascript" charset="utf-8"></script>
@@ -105,7 +106,7 @@ $(function() {
 
 </head>
 
-<body style="background-color:#FBFBFB;">
+<body style="background-color:#FBFBFB; zoom: 90%;">
 
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container-fluid">

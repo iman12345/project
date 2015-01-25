@@ -4,20 +4,20 @@
   <div class="row" style="margin-top:20px;">
     <div class="col-sm-10">
     
-  	  <!-- Analytics Header -->
+  		<!-- Analytics Header -->
 	  <div class="row clearfix">
         <div class="col-sm-4">
-            <ul class="nav nav-pills nav-justified" role="tablist" id="myTab">
-              <li role="presentation" class="active btn-default"><a href="#main" aria-controls="main" role="tab" data-toggle="tab">Main</a></li>
-              <li role="presentation" class="btn-default"><a href="#servicereq" aria-controls="servicereq" role="tab" data-toggle="tab">Service Request</a></li>
-            </ul>
+          <div class="btn-group btn-group-justified" role="group" aria-label="...">
+            <a role="button" class="btn btn-primary" href="#">Main</a>
+            <a role="button" class="btn btn-default" href="#">Service Request</a>
+          </div>
         </div>
         <div class="col-sm-3 pull-right text-right">    
           <a id="print" role="button" class="btn btn-primary" href="#"><span class="glyphicon glyphicon-print"></span> Print</a>        
           <a id="export" role="button" class="btn btn-primary" href="#"><span class="glyphicon glyphicon-export"></span> Export</a>        
         </div> 
       </div><!-- /.row -->
-
+                               
       <hr style="margin-bottom:10px;margin-top:10px" /> 
                      
       <div class="row" style="padding-left: 15px"> 
@@ -49,10 +49,10 @@
 	  </div><!-- /.row -->   
 		    
       <hr style="margin-bottom:10px;margin-top:10px" />
-             
-    <!-- Analytics Body -->    
-    <div class="tab-content">
-      <div role="tabpanel" class="tab-pane active" id="main">
+        
+        
+        
+        <!-- Analytics Body -->    
     <div class="row" id="charts-row">
     
       <div class="col-sm-4">
@@ -104,38 +104,25 @@
       
       </div><!-- /.col-sm-12 -->
     </div><!-- /.row -->
-    </div>
     
-      <div role="tabpanel" class="tab-pane" id="servicereq">
-      
-    <div class="row" id="charts-row">
     
-      <div class="col-sm-4">
-        <div class="panel panel-default">
-          <div class="panel-heading"><b>Top Categories By Sales</b></div>
-          <div class="panel-body">
-            <div id="morris-donut-chart4" style="height:200px;"></div>
-          </div><!-- /.panel-body -->
-        </div><!-- /.panel panel-default -->
-      </div><!-- /.col-sm-4 -->
-      
-      <div class="col-sm-4">
-        <div class="panel panel-default">
-          <div class="panel-heading"><b>Top Categories By Sales</b></div>
-          <div class="panel-body">
-            <div id="morris-donut-chart5" style="height:200px;"></div>
-          </div><!-- /.panel-body -->
-        </div><!-- /.panel panel-default -->
-      </div><!-- /.col-sm-4 -->
+<ul class="nav nav-tabs" role="tablist" id="myTab">
+  <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Home</a></li>
+  <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Profile</a></li>
+  <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Messages</a></li>
+  <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li>
+</ul>
 
-	</div>      
-      </div>
-      
-    </div>
-    
+<div class="tab-content">
+  <div role="tabpanel" class="tab-pane active" id="home">...</div>
+  <div role="tabpanel" class="tab-pane" id="profile">...</div>
+  <div role="tabpanel" class="tab-pane" id="messages">...</div>
+  <div role="tabpanel" class="tab-pane" id="settings">...</div>
+</div>
+
 <script>
   $(function () {
-    $('#myTab a:first').tab('show')
+    $('#myTab a:last').tab('show')
   })
 </script>    
           
@@ -195,38 +182,6 @@
 		colors: ['#ff0000','#00ff00','#0000ff']
     });	
 	
-	Morris.Donut({
-        element: 'morris-donut-chart4',
-        data: [{
-            label: "Download Sales",
-            value: 12
-        }, {
-            label: "In-Store Sales",
-            value: 30
-        }, {
-            label: "Mail-Order Sales",
-            value: 20
-        }],
-        resize: true,
-		colors: ['#ff0000','#00ff00','#0000ff']
-    });	
-
-    Morris.Donut({
-        element: 'morris-donut-chart5',
-        data: [{
-            label: "Download Sales",
-            value: 12
-        }, {
-            label: "In-Store Sales",
-            value: 30
-        }, {
-            label: "Mail-Order Sales",
-            value: 20
-        }],
-        resize: true,
-		colors: ['#ff0000','#00ff00','#0000ff']
-    });	
-
 	Morris.Area({
         element: 'morris-area-chart',
         data: [{

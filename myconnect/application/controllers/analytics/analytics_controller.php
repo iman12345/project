@@ -22,7 +22,7 @@ class Analytics_controller extends CI_Controller {
 	public function index()
 	{
 		$this->load->view('analytics/analytics');
-		$this->load->view('shared/right_menu');
+		$this->load->view('analytics/sidebar');
 		$this->load->view('shared/footer');
 	}
 	

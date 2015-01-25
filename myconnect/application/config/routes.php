@@ -38,7 +38,7 @@
 |
 */
 
-$route['default_controller'] = "landing/Login_controller";
+$route['default_controller'] = "dashboard/Dashboard_controller";//
 
 $route['login'] = "landing/Login_controller";
 $route['logout'] = "dashboard/Dashboard_controller/logout";
