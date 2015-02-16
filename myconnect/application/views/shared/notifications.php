@@ -5,9 +5,10 @@
     <div class="row">
       <div class="col-sm-10">
       
-        <div class="page-header">
+        <!--<div class="page-header">
           <h1><small>Notifications</small></h1>
-        </div>
+        </div>-->
+        <hr />
       
         <table class="table table-striped table-hover" id="notif">
           <thead>
@@ -53,13 +54,6 @@
         </table>
       </div><!-- /.col-sm-10 -->
 
-<div id="dialog-form" title="Notification">
-    
-    <p><b id="dialogSubject"></b> - &lt;<small id="dialogFrom"></small>&gt;</p>
-    <hr />
-    <p id="dialogMessage" for="dialogMessage"></p>
-    
-</div>
 
 <!-- Modal data-toggle="modal" data-target="#bookModal" -->
 <div class="modal fade" id="bookModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -93,7 +87,7 @@
 	  });
 	
 	$("#notif tr td:not(:first-child)").click(function(){
-	  //$("#dialog-form").dialog("open");	
+	  $("#dialog-form").dialog("open");	
 	  var id = $(this).attr('id'); 
 	  $("#dialogFrom").text($("#from"+id).text());
 	  $("#dialogSubject").text($("#subject"+id).text());  

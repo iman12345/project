@@ -21,7 +21,10 @@ class Services_controller extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('services/services');
+		$this->load->model('services/services_model','services',TRUE);
+		$data['services'] = $this->services->get_request();
+
+		$this->load->view('services/services',$data);
 		$this->load->view('shared/right_menu');
 		$this->load->view('shared/footer');
 	}

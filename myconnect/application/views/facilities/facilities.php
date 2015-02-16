@@ -6,7 +6,7 @@
     <div class="col-sm-10">
 
     <div class="page-header">
-      <h1><small>Facilities</small>
+      <h3 class="text-info">Facilities Management
         <button style="margin-top:-5px;" type="button" class="btn btn-success btn-md pull-right" data-toggle="modal" data-target="#bookModal">
           <span class="glyphicon glyphicon-calendar"></span> Book a facility
         </button>
@@ -15,10 +15,10 @@
             
     <div class="well well-sm">
         <div class="row">
-          <div class="col-sm-3"><span style="background-color:red;">&nbsp;&nbsp;</span> - Badminton Court</div>
-          <div class="col-sm-3"><span style="background-color:green;">&nbsp;&nbsp;</span> - Tenis Court</div>
-          <div class="col-sm-3"><span style="background-color:blue;">&nbsp;&nbsp;</span> - Community Room A</div>
-          <div class="col-sm-3"><span style="background-color:yellow;">&nbsp;&nbsp;</span> - Community Room B</div>
+          <div class="col-sm-3"><img src="http://placehold.it/15/d9534f&text=." /> - Badminton Court</div>
+          <div class="col-sm-3"><img src="http://placehold.it/15/5cb85c&text=." /> - Tenis Court</div>
+          <div class="col-sm-3"><img src="http://placehold.it/15/428bca&text=." /> - Community Room A</div>
+          <div class="col-sm-3"><img src="http://placehold.it/15/f0ad4e&text=." /> - Community Room B</div>
         </div>
     </div>
 	

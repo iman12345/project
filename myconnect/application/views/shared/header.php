@@ -9,104 +9,39 @@
 
 <link rel="shortcut icon" href="<?php echo base_url(); ?>assets/images/icon2.ico" />
 
-<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/myconnect.css"/>  
+<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/jquery-ui.min.css"/>
 <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/bootstrap.css"/>
-<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/jquery.dataTables.css"/>
-
 <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/sidebar.css"/>
 <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/datepicker3.css"/>
-<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/msform.css"/>
 <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/gallery-effect.css"/>
+<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/myconnect.css"/>
 <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/wireframe.css"/>
+<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/font-awesome.min.css"/>
 
 <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/jquery.js"></script>
+<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/jquery-ui.min.js"></script>
 <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/bootstrap.js"></script>
 <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/bootstrap-datepicker.js"></script>
+
+<!-- Data Tables -->
+<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/dataTables.bootstrap.css"/>
 <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/jquery.dataTables.js"></script>
+<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/dataTables.bootstrap.js"></script>
 
 <!-- Chart -->
-<script type="text/javascript" src="assets/js/highcharts.js"></script>
-<script type="text/javascript" src="assets/js/modules/exporting.js"></script>
-
-<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/morrisjs/morris.css"/>
+<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/morrisjs/morris.css" />
 <!-- Morris Charts JavaScript -->
 <script src="<?php echo base_url(); ?>assets/raphael/raphael.min.js"></script>
 <script src="<?php echo base_url(); ?>assets/morrisjs/morris.min.js"></script>
 
-<!-- Scheduler -->
-<script src='<?php echo base_url(); ?>assets/codebase/dhtmlxscheduler.js' type="text/javascript" charset="utf-8"></script>
-<script src='<?php echo base_url(); ?>assets/codebase/ext/dhtmlxscheduler_timeline.js' type="text/javascript" charset="utf-8"></script>
-<link rel='stylesheet' type='text/css' href='<?php echo base_url(); ?>assets/codebase/dhtmlxscheduler.css'>
-
-<script type="text/javascript">
-$(function() {
-    $( document ).tooltip({
-      position: {
-        my: "center bottom-5",
-        at: "center top",
-        using: function( position, feedback ) {
-          $( this ).css( position );
-          $( "<div>" )
-            .addClass( "arrow" )
-            .addClass( feedback.vertical )
-            .addClass( feedback.horizontal )
-            .appendTo( this );
-        }
-      }
-    });
-});
-</script>
-
-<style>
-  .ui-tooltip, .arrow:after {
-    background: black;
-    border: 2px solid white;
-  }
-  .ui-tooltip {
-    padding: 4px 8px;
-    color: white;
-    border-radius: 20px;
-    font: bold 10px "Helvetica Neue", Sans-Serif;
-    text-transform: uppercase;
-    box-shadow: 0 0 7px black;
-  }
-  .arrow {
-    width: 35px;
-    height: 8px;
-    overflow: hidden;
-    position: absolute;
-    left: 50%;
-    margin-left: -17px;
-    bottom: -8px;
-  }
-  .arrow.top {
-    top: -8px;
-    bottom: auto;
-  }
-  .arrow.left {
-    left: 20%;
-  }
-  .arrow:after {
-    content: "";
-    position: absolute;
-    left: 10px;
-    top: -10px;
-    width: 15px;
-    height: 15px;
-    box-shadow: 6px 5px 9px -9px black;
-    -webkit-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-    transform: rotate(45deg);
-  }
-  .arrow.top:after {
-    bottom: -10px;
-    top: auto;
-  }
-  </style>
+<!--
+<script type="text/javascript" src=""></script>
+<link rel="stylesheet" type="text/css" href="" />
+-->
 
 </head>
 
-<body style="background-color:#FBFBFB; zoom: 90%;">
+<body><!-- style="background-color:#FBFBFB;" -->
 
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container-fluid">
@@ -131,7 +66,7 @@ $(function() {
             <li>
               <a href="<?php echo site_url(); ?>/notifications">
                 <span class="glyphicon glyphicon-bell" style="font-size:1.5em; padding:0; margin:0;" aria-hidden="true"></span>
-                <sup class="badge">42</sup>
+                <sup class="header-badge" style="">42</sup>
               </a>
             </li>
             

@@ -38,7 +38,7 @@
 |
 */
 
-$route['default_controller'] = "dashboard/Dashboard_controller";//
+$route['default_controller'] = "dashboard/Dashboard_controller";
 
 $route['login'] = "landing/Login_controller";
 $route['logout'] = "dashboard/Dashboard_controller/logout";
@@ -53,10 +53,14 @@ $route['facilities'] = "facilities/Facilities_controller";
 $route['events'] = "events/Events_controller";
 $route['services'] = "services/Services_controller";
 $route['analytics'] = "analytics/Analytics_controller";
+$route['payments'] = "payments/Payments_controller";
+
 $route['about'] = "about/About_controller";
 $route['contact'] = "contact/Contact_controller";
 
 $route['404_override'] = '';
+
+
 
 
 /* End of file routes.php */

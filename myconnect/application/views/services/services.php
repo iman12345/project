@@ -9,49 +9,61 @@
     <div class="page-header">
       <h1>
         <small>Maintenance Services</small>
-        <button style="margin-top:-5px;" type="button" class="btn btn-success btn-md pull-right" data-toggle="modal" data-target="#bookModal">
+        <button style="margin-top:-5px;" type="button" class="btn btn-primary btn-md pull-right" data-toggle="modal" data-target="#bookModal">
           <span class="glyphicon glyphicon-calendar"></span> Submit New Request
         </button>
       </h1>
     </div>
         
-    <!-- content table -->
-      <table id="myTable" class="table table-striped table-responsive table-hover"> 
+    <!-- content table 
+    REQUEST_ID
+    SUBMITTED_BY
+    UNIT NUMBER
+    CAPTION
+    DATE_SUB
+    DATE_RESOLVED
+    STATUS -->
+      <table id="myTable" class="table table-striped table-hover table-bordered"> 
         <thead> 
           <tr> 
             <th>Request ID</th> 
             <th>Request Caption</th> 
-            <th>Submited Date</th> 
-            <th>Status</th> 
+            <th>Submitted Date</th> 
+            <th>Submitted By</th> 
+            <th>Unit Number</th>
+            <th>Status</th>
+            <th>Resolved Date</th>
           </tr> 
         </thead> 
         <tbody> 
-          <tr> 
-            <td>A101</td> 
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</td> 
-            <td>dd/mm/yy hh:mm</td> 
-            <td>open</td> 
-          </tr> 
-          <tr> 
-            <td>A102</td> 
-            <td>Nulla quis augue tellus. Suspendisse at felis sed tellus ornare facilisis. </td> 
-            <td>dd/mm/yy hh:mm</td> 
-            <td>close</td> 
-          </tr> 
-          <tr> 
-            <td>A103</td> 
-            <td>Mauris eleifend neque ligula, in ullamcorper urna placerat a.</td> 
-            <td>dd/mm/yy hh:mm</td> 
-            <td>open</td> 
-          </tr> 
-          <tr> 
-            <td>A104</td> 
-            <td>Nullam scelerisque ligula sed urna porttitor, nec tempus ipsum commodo.</td> 
-            <td>dd/mm/yy hh:mm</td> 
-            <td>close</td> 
-          </tr> 
+        <?php
+        	foreach($services as $row){
+				if($row->STATUS == 'INPROG') echo "<tr class='info'>";
+				else if ($row->STATUS == 'OPEN') echo "<tr class='success'>";
+				else echo "<tr>";
+				echo "<td>". $row->ID ."</td>";
+				echo "<td>". $row->CAPTION ."</td>";
+				echo "<td>". $row->DATE_SUB ."</td>";
+				echo "<td>". $row->SUBMITTED_BY ."</td>";
+				echo "<td>". $row->UNIT_ID ."</td>";
+				echo "<td>". $row->STATUS ."</td>";
+				if($row->STATUS == 'CLOSE') echo "<td>". $row->LAST_UPDATED_DATE ."</td>";
+				else echo "<td>-</td>";
+				echo "</tr>";	
+			}
+		?>
         </tbody> 
   	  </table> 
+      <?php echo current_url(); ?>/data1.json
+      <table data-toggle="table" data-url="<?php echo current_url(); ?>/data1.json" data-cache="false" data-height="299" data-sort-name="name" data-sort-order="desc">
+        <thead>
+            <tr>
+                <th data-field="id">Item ID</th>
+                <th data-field="name">Item Name</th>
+                <th data-field="price">Item Price</th>
+            </tr>
+        </thead>
+      </table>
           
 </div><!-- /.col-sm-10 -->
               
@@ -152,8 +164,30 @@ $("#inputImg").on("change", function(){
 
 //$("#myTable").tablesorter();
 
-$('#myTable').dataTable();
-	
+/*var data = [
+    [
+        "Tiger Nixon",
+        "System Architect",
+        "Edinburgh",
+        "5421",
+        "2011/04/25",
+        "$3,120",
+        "2011/04/25"
+    ],
+    [
+        "Garrett Winters",
+        "Director",
+        "Edinburgh",
+        "8422",
+        "2011/07/25",
+        "$5,300",
+        "2011/04/25"
+    ]
+]*/
+//$('#myTable').dataTable();
+$('#myTable').DataTable( {
+    //data: data
+} );	
 </script>
 
 

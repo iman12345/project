@@ -1,15 +1,20 @@
+
 <div id="page-content-wrapper">
-  <div class="container-fluid" style="font-size:90%;">
+  <div class="container-fluid" style="font-size:90%; zoom: 90%;">
   
   <div class="row" style="margin-top:20px;">
-    <div class="col-sm-10">
+    <div class="col-sm-10" id="body">
     
   	  <!-- Analytics Header -->
 	  <div class="row clearfix">
         <div class="col-sm-4">
             <ul class="nav nav-pills nav-justified" role="tablist" id="myTab">
-              <li role="presentation" class="active btn-default"><a href="#main" aria-controls="main" role="tab" data-toggle="tab">Main</a></li>
-              <li role="presentation" class="btn-default"><a href="#servicereq" aria-controls="servicereq" role="tab" data-toggle="tab">Service Request</a></li>
+              <li role="presentation" class="active">
+                <a href="#main" aria-controls="main" role="tab" data-toggle="tab" data-identifier="paymentChart, monthlyChart">Main</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#servicereq" aria-controls="servicereq" role="tab" data-toggle="tab" data-identifier="donut4, donut5">Service Request</a>
+              </li>
             </ul>
         </div>
         <div class="col-sm-3 pull-right text-right">    
@@ -50,96 +55,160 @@
 		    
       <hr style="margin-bottom:10px;margin-top:10px" />
              
-    <!-- Analytics Body -->    
-    <div class="tab-content">
-      <div role="tabpanel" class="tab-pane active" id="main">
-    <div class="row" id="charts-row">
-    
-      <div class="col-sm-4">
-        <div class="panel panel-default">
-          <div class="panel-heading"><b>Top Categories By Sales</b></div>
-          <div class="panel-body">
-            <div id="morris-donut-chart" style="height:200px;"></div>
-          </div><!-- /.panel-body -->
-        </div><!-- /.panel panel-default -->
-      </div><!-- /.col-sm-4 -->
+      <!-- Analytics Body -->    
+      <div class="tab-content">
       
-      <div class="col-sm-4">
-        <div class="panel panel-default">
-          <div class="panel-heading"><b>Top Categories By Sales</b></div>
-          <div class="panel-body">
-            <div id="morris-donut-chart2" style="height:200px;"></div>
-          </div><!-- /.panel-body -->
-        </div><!-- /.panel panel-default -->
-      </div><!-- /.col-sm-4 -->
-      
-      <div class="col-sm-4">
-        <div class="panel panel-default">
-          <div class="panel-heading"><b>Top Categories By Sales</b></div>
-          <div class="panel-body">
-            <div id="morris-donut-chart3" style="height:200px;"></div>
-          </div><!-- /.panel-body -->
-        </div><!-- /.panel panel-default -->
-      </div><!-- /.col-sm-4 -->
-    
-    </div><!-- /.row #charts-row-->
-    
-    <div class="row">
-      <div class="col-sm-12">
-      
-        <div class="panel panel-default">
-          <div class="panel-heading clearfix">
-            <b class="pull-left panel-title">New Sign Up</b>
-            <div class="col-sm-2 pull-right" style="padding:0px;">
-              <div class="btn-group btn-group-justified" role="group" aria-label="...">
-                <a role="button" class="btn btn-primary" href="#">Weekly</a>
-                <a role="button" class="btn btn-default" href="#">Monthly</a>
-              </div>
-            </div>
-          </div><!-- /.panel-heading -->
-          <div class="panel-body">
-            <div id="morris-area-chart" style="height:200px;"></div>
-          </div><!-- /.panel-body -->
-        </div><!-- /.panel panel-default -->
-      
-      </div><!-- /.col-sm-12 -->
-    </div><!-- /.row -->
-    </div>
-    
-      <div role="tabpanel" class="tab-pane" id="servicereq">
-      
-    <div class="row" id="charts-row">
-    
-      <div class="col-sm-4">
-        <div class="panel panel-default">
-          <div class="panel-heading"><b>Top Categories By Sales</b></div>
-          <div class="panel-body">
-            <div id="morris-donut-chart4" style="height:200px;"></div>
-          </div><!-- /.panel-body -->
-        </div><!-- /.panel panel-default -->
-      </div><!-- /.col-sm-4 -->
-      
-      <div class="col-sm-4">
-        <div class="panel panel-default">
-          <div class="panel-heading"><b>Top Categories By Sales</b></div>
-          <div class="panel-body">
-            <div id="morris-donut-chart5" style="height:200px;"></div>
-          </div><!-- /.panel-body -->
-        </div><!-- /.panel panel-default -->
-      </div><!-- /.col-sm-4 -->
-
-	</div>      
-      </div>
-      
-    </div>
-    
-<script>
-  $(function () {
-    $('#myTab a:first').tab('show')
-  })
-</script>    
+        <div role="tabpanel" class="tab-pane active" id="main">
+      	  <div class="row" id="donutCharts">
+        
+              <div class="col-sm-4">
+                <div class="panel panel-default">
+                  <div class="panel-heading"><b>Top 5 Features</b></div>
+                    <table class="table table-hover table-bordered">
+                      <tbody>
+                        <tr>
+                          <td width="1%">1.</td>
+                          <td>Events</td>
+                        </tr>
+                        <tr>
+                          <td>2.</td>
+                          <td>Service Request</td>
+                        </tr>
+                        <tr>
+                          <td>3.</td>
+                          <td>Facilities Book</td>
+                        </tr>
+                        <tr>
+                          <td>4.</td>
+                          <td>Payments</td>
+                        </tr>
+                        <tr>
+                          <td>5.</td>
+                          <td>Others</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                </div><!-- /.panel panel-default -->
+              </div><!-- /.col-sm-4 -->
           
-    </div><!-- /.col-sm-10 -->
+              <div class="col-sm-4">
+                <div class="panel panel-default">
+                  <div class="panel-heading"><b>Most Booked Facility</b></div>
+                    <table class="table table-hover table-bordered">
+                      <tbody>
+                        <tr>
+                          <td width="1%">1.</td>
+                          <td>Tenis Court</td>
+                        </tr>
+                        <tr>
+                          <td>2.</td>
+                          <td>Badminton Court</td>
+                        </tr>
+                        <tr>
+                          <td>3.</td>
+                          <td>Community Room A</td>
+                        </tr>
+                        <tr>
+                          <td>4.</td>
+                          <td>Community Room B</td>
+                        </tr>
+                        <tr>
+                          <td>5.</td>
+                          <td>Others</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                </div><!-- /.panel panel-default -->
+              </div><!-- /.col-sm-4 -->
+          
+              <div class="col-sm-4">
+                <div class="panel panel-default">
+                  <div class="panel-heading"><b>Payments</b></div>
+                  <div class="panel-body">
+                    <div id="morris-donut-chart3" style="height:135px;"></div>
+                  </div><!-- /.panel-body -->
+                </div><!-- /.panel panel-default -->
+              </div><!-- /.col-sm-4 -->
+        
+          </div><!-- /.row #donutCharts -->
+        
+          <div class="row" id="areaChart1">
+          
+              <div class="col-sm-12">
+              
+                  <div id="monitor" class="panel panel-default tab-box">
+                    <div class="panel-heading">
+                      <h3 class="panel-title">
+                        <i class="fa fa-signal"></i> New Sign ups
+                      </h3>
+                
+                      <ul class="nav nav-tabs">
+                        <li class="active">
+                          <a href="#fuel-tab" data-toggle="tab" data-identifier="monthlyChart">Monthly</a>
+                        </li>
+                        <li> 
+                          <a href="#co2-tab" data-toggle="tab" data-identifier="weeklyChart">Weekly</a>
+                        </li>
+                      </ul>
+                    </div><!-- /.panel-heading -->
+                    <div class="panel-body">
+                      <div class="tab-content">
+                        <div id="fuel-tab" class="tab-pane active">
+                          <div class="row">
+                            <div class="col-md-12 chart">
+                              <div id="morris-area-chart"></div>
+                            </div><!-- /.col-sm-12 col-md-7 chart -->
+                          </div><!-- /.row -->
+                        </div><!-- /.tab-pane #fuel-tab -->
+                        <div id="co2-tab" class="tab-pane">
+                          <div class="row">
+                            <div class="col-md-12 chart">
+                              <div id="morris-area-chart2"></div>
+                            </div>
+                          </div>
+                        </div><!-- /.tab-pane #co2-tab -->
+                      </div><!-- /.tab-content -->
+                    </div><!-- /.panel-body -->
+                  </div><!-- /.panel panel-default tab-box -->  
+              
+              </div><!-- /.col-sm-12 -->
+          
+          </div><!-- /.row #areaChart1 -->
+        </div><!-- /.tab-pane #main -->
+       
+        <div role="tabpanel" class="tab-pane" id="servicereq">
+      
+            <div class="row" id="donutCharts">
+            
+              <div class="col-sm-4">
+                <div class="panel panel-default">
+                  <div class="panel-heading"><b>Service Request</b></div>
+                  <div class="panel-body">
+                    <div id="morris-donut-chart4" style="height:200px;"></div>
+                  </div><!-- /.panel-body -->
+                </div><!-- /.panel panel-default -->
+              </div><!-- /.col-sm-4 -->
+              
+              <div class="col-sm-4">
+                <div class="panel panel-default">
+                  <div class="panel-heading"><b>Average Resolutions</b></div>
+                  <div class="panel-body">
+                    <div id="morris-donut-chart5" style="height:200px;"></div>
+                  </div><!-- /.panel-body -->
+                </div><!-- /.panel panel-default -->
+              </div><!-- /.col-sm-4 -->
+        
+            </div><!-- /.row #donutCharts -->
+             
+        </div><!-- /.tab-pane #servicereq -->
+      
+      </div><!-- /.tab-content -->
+    
+    <!------------------------------------------------------------------------------------------------>
+    
+    <!------------------------------------------------------------------------------------------------>
+              
+    </div><!-- /.col-sm-10 #body -->
     
 <script>
 
@@ -147,55 +216,32 @@
 		format: 'dd M yyyy'	
 	});
 	
-    Morris.Donut({
-        element: 'morris-donut-chart',
-        data: [{
-            label: "Download Sales",
-            value: 12
-        }, {
-            label: "In-Store Sales",
-            value: 30
-        }, {
-            label: "Mail-Order Sales",
-            value: 20
-        }],
-        resize: true,
-		colors: ['#ff0000','#00ff00','#0000ff']
-    });	
-	
-	Morris.Donut({
-        element: 'morris-donut-chart2',
-        data: [{
-            label: "Download Sales",
-            value: 12
-        }, {
-            label: "In-Store Sales",
-            value: 30
-        }, {
-            label: "Mail-Order Sales",
-            value: 20
-        }],
-        resize: true,
-		colors: ['#ff0000','#00ff00','#0000ff']
-    });	
-	
-	Morris.Donut({
+	$('#myTab a').on('shown.bs.tab', function (e) {
+		var types = $(this).attr("data-identifier");
+		var typesArray = types.split(",");
+		$.each(typesArray, function (key, value) {
+			eval(value + ".redraw()");
+		})
+	});
+		
+	var payment = {
         element: 'morris-donut-chart3',
         data: [{
-            label: "Download Sales",
+            label: "Success",
             value: 12
         }, {
-            label: "In-Store Sales",
+            label: "Pending",
             value: 30
         }, {
-            label: "Mail-Order Sales",
+            label: "Failed",
             value: 20
         }],
         resize: true,
-		colors: ['#ff0000','#00ff00','#0000ff']
-    });	
+    }	
 	
-	Morris.Donut({
+	paymentChart = Morris.Donut(payment)
+	
+	var test2 = {
         element: 'morris-donut-chart4',
         data: [{
             label: "Download Sales",
@@ -208,10 +254,11 @@
             value: 20
         }],
         resize: true,
-		colors: ['#ff0000','#00ff00','#0000ff']
-    });	
+    }
+	
+	donut4 = Morris.Donut(test2)
 
-    Morris.Donut({
+    var test3 = {
         element: 'morris-donut-chart5',
         data: [{
             label: "Download Sales",
@@ -224,70 +271,101 @@
             value: 20
         }],
         resize: true,
-		colors: ['#ff0000','#00ff00','#0000ff']
-    });	
+    }
+	donut5 = Morris.Donut(test3)
 
-	Morris.Area({
+	
+</script>
+<script>
+
+	//-------------------------------------------------------------------------
+	$('ul.nav a').on('shown.bs.tab', function (e) {
+		var types = $(this).attr("data-identifier");
+		var typesArray = types.split(",");
+		$.each(typesArray, function (key, value) {
+			eval(value + ".redraw()");
+		})
+	});
+	// Morris graphs ---------------------------------------------------------- //
+	var monthly = {
         element: 'morris-area-chart',
+        data: [{ 
+			mth: '2015-01', 
+		  	a: 100
+		}, { 
+			mth: '2015-02', 
+			a: 75
+		}, {
+			mth: '2015-03', 
+			a: 50 
+		}, { 
+			mth: '2015-04', 
+			a: 75 
+		}, { 
+			mth: '2015-05', 
+			a: 50 
+		}, { 
+			mth: '2015-06', 
+			a: 75
+		}, { 
+			mth: '2015-07',
+			 a: 100
+		}],
+        xkey: 'mth',
+		ykeys: ['a'],
+		labels: ['Sign'],
+        resize: true,
+		xLabelFormat: function (x) {
+			  var IndexToMonth = [ "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Dec" ];
+			  var month = IndexToMonth[ x.getMonth() ];
+			  var year = x.getFullYear();
+			  return month + ' ' + year;
+		  },
+	  dateFormat: function (x) {
+			  var IndexToMonth = [ "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Dec" ];
+			  var month = IndexToMonth[ new Date(x).getMonth() ];
+			  var year = new Date(x).getFullYear();
+			  return month + ' ' + year;
+		  }
+    }
+	
+	monthlyChart = Morris.Area(monthly)
+	
+	var weekly = {
+        element: 'morris-area-chart2',
         data: [{
-            period: '2010 Q1',
-            iphone: 2666,
-            ipad: null,
-            itouch: 2647
+            period: '2015 W0',
+            a: 2666,
         }, {
-            period: '2010 Q2',
-            iphone: 2778,
-            ipad: 2294,
-            itouch: 2441
+            period: '2015 W1',
+            a: 2778,
         }, {
-            period: '2010 Q3',
-            iphone: 4912,
-            ipad: 1969,
-            itouch: 2501
+            period: '2015 W2',
+            a: 8432,
         }, {
-            period: '2010 Q4',
-            iphone: 3767,
-            ipad: 3597,
-            itouch: 5689
-        }, {
-            period: '2011 Q1',
-            iphone: 6810,
-            ipad: 1914,
-            itouch: 2293
-        }, {
-            period: '2011 Q2',
-            iphone: 5670,
-            ipad: 4293,
-            itouch: 1881
-        }, {
-            period: '2011 Q3',
-            iphone: 4820,
-            ipad: 3795,
-            itouch: 1588
-        }, {
-            period: '2011 Q4',
-            iphone: 15073,
-            ipad: 5967,
-            itouch: 5175
-        }, {
-            period: '2012 Q1',
-            iphone: 10687,
-            ipad: 4460,
-            itouch: 2028
-        }, {
-            period: '2012 Q2',
-            iphone: 8432,
-            ipad: 5713,
-            itouch: 1791
+            period: '2015 W3',
+            a: 4235,
         }],
         xkey: 'period',
-        ykeys: ['iphone'],
-        labels: ['iPhone'],
-        pointSize: 2,
+		xLabels: 'week',
+        ykeys: ['a'],
+        labels: ['Sign'],
         hideHover: 'auto',
         resize: true,
-		lineColors: ['#0000ff']
-    });
+		xLabelFormat: function (x) {
+			  var prefixes = ['Week 1', 'Week 2', 'Week 3', 'Week 4', 'Week 5'];
+			  return prefixes[0 | new Date(x).getDate() / 7];
+		  },
+	  	dateFormat: function (x) {
+			  var prefixes = ['Week 1', 'Week 2', 'Week 3', 'Week 4', 'Week 5'];
+			  return prefixes[0 | new Date(x).getDate() / 7];
+		  }
+    }
+	
+	weeklyChart = Morris.Area(weekly)
+	// / Morris graphs -------------------------------------------------------- //
+	//-------------------------------------------------------------------------
 
 </script>
+
     

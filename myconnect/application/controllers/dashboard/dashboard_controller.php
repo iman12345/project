@@ -4,7 +4,18 @@ class Dashboard_controller extends CI_Controller {
 	
 	function __construct()
 	{
-		parent::__construct();	
+		parent::__construct();
+		// uncomment below code to ignore login
+		//---------------------------------------	
+		/*
+		$sess_array = array(
+		  'id' => 1
+		  ,'username' => 'User 1'
+		  ,'apartment' => 'Apartment 1'
+	    );
+	    $this->session->set_userdata('logged_in', $sess_array);
+		*/
+		//---------------------------------------	
 		if(!$this->session->userdata('logged_in')) redirect('login', 'refresh');
 		$this->data['menu'] = 'dashboard';
 

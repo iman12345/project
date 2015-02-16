@@ -8,6 +8,7 @@
 <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/bootstrap.js"></script>
  
 <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/bootstrap.css"/>
+<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/myconnect.css"/>
 <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/gallery-effect.css"/>
   
 </head>
@@ -21,8 +22,9 @@
   <div class="mid">
    
     <div class="row">
-      <div class="col-sm-4 col-sm-offset-4">
-      <img src="<?php echo base_url(); ?>assets/images/logo.png" style="width:400px;" class="grayscale" />
+      <div class="col-sm-4 col-sm-offset-4 text-center">
+      <img src="<?php echo base_url(); ?>assets/images/logo.png" style="width:300px;" class="brightness" />
+      <h1 class="" style="color:white; margin-bottom:0px;">River Side Residences</h1>
       </div>
     </div><!-- /.row -->
      

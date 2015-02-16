@@ -1,7 +1,4 @@
-<div class="menu-toggle">
-  <a href="#menu-toggle" class="" id="menu-toggle">
-    <span id="hand" class=""></span></a>
-</div>
+
 
 <!-- Sidebar -->
 <div id="sidebar-wrapper">
@@ -20,6 +17,9 @@
     </li>
     <li class="<?php if($menu == 'analytics'){ echo "active";} ?>">
 	  <?php echo anchor('analytics', 'Analytics'); ?>
+    </li>
+    <li class="<?php if($menu == 'payments'){ echo "active";} ?>">
+	  <?php echo anchor('payments', 'Payments'); ?>
     </li>
     <!--<li class="<?php if($menu == 'about'){ echo "active";} ?>">
 	  <?php echo anchor('about', 'About Us'); ?>
