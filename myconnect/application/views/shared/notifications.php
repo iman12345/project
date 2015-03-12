@@ -42,7 +42,7 @@
           <tfoot>
             <tr>
               <td class="active" colspan="4" align="right">
-                <button type="button" id="check-all" class="btn btn-default">
+                <button type="button" id="checkall" class="btn btn-default">
                   <span class="glyphicon glyphicon-check"></span>
                 </button>
                 <button type="button" class="btn btn-default">
@@ -98,14 +98,21 @@
       return currentText.substr(0, 150)+'...';
 	});
 	
-	$("#check-all").click(function(){
-	  if ($("input:checkbox:checked").length > 0) {
-	    $('input:checkbox').attr('checked','uncheck');
-	  }	
-	  else {
-	    $('input:checkbox').attr('checked','checked');
-	  }
-	  //return false;	
-	});
-		
+	$("#notif #checkall").click(function () {
+        if ($("#notif input[type=checkbox]").is(':checked')) {
+            $("#notif input[type=checkbox]").each(function () {
+                $(this).prop("checked", false);
+				var id = $(this).attr('id');
+				$("#row"+id).removeClass("warning");
+            });
+
+        } else {
+            $("#notif input[type=checkbox]").each(function () {
+                $(this).prop("checked", true);
+				var id = $(this).attr('id');
+				$("#row"+id).addClass("warning");
+            });
+        }
+    });
+			
 </script>

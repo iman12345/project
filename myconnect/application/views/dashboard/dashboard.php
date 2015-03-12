@@ -4,13 +4,19 @@
 <!-- Page Content -->
   <div class="container-fluid" style="font-size:90%;">
     <div class="row">
-      <div class="col-sm-10">
+      <div class="col-sm-10" style="zoom:75%; -moz-transform: scaleY(0.85); -moz-transform-origin: 0 0;">
       
-        <hr /> 
+        <!--<div class="col-sm-12 text-center">
+          <h4>Announcements</h4>
+        </div>--> 
         <div class="row">
           <div class="col-sm-12">
-          
-            <div class="container-board">
+          <br />
+            <div class="page-header" style="padding:0; margin-top:0;">
+              <h3 style="padding:0; margin:0;">Announcements</h3>
+            </div> 
+                    
+            <div class="container-board" style="margin-top:-10px;">
             
               <div class="col-sm-2 col-sm-offset-1 notes">
                 <div class="notes-text">
@@ -33,14 +39,19 @@
                 </div>
               </div>
             
-            </div>
-          	                   
+            </div><!-- /.container-board -->
+                      	                   
           </div><!-- /.col-sm-12 -->
         </div><!-- /.row -->
         
-		<hr />
         
-        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="page-header" style="padding:0;">
+              <h3 style="padding:0; margin:0;">Events</h3>
+            </div>         
+        
+        <div id="myCarousel" class="carousel slide" data-ride="carousel" style="margin-bottom:0; margin-top:-10px;">
           <!-- Indicators -->
           <ol class="carousel-indicators">
             <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -81,7 +92,10 @@
           </div>
           <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
           <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
-        </div>
+        </div><!-- /#myCarousel -->
+               	                   
+          </div><!-- /.col-sm-12 -->
+        </div><!-- /.row -->
      
       </div><!-- /.col-sm-10 -->
 

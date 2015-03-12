@@ -41,7 +41,7 @@
 
 </head>
 
-<body><!-- style="background-color:#FBFBFB;" -->
+<body style="padding-bottom:0px;"><!-- style="background-color:#FBFBFB;" -->
 
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container-fluid">
@@ -53,11 +53,10 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <div class="gallery">
           <a class="navbar-brand" href="home">
-            <img style="width:75px; height:35px;" src="<?php echo base_url(); ?>assets/images/logo.png" class="brightness" /> MyConnect             
+          	<img src="data:image/jpeg;base64,<?php echo base64_encode($apartment->IMAGE); ?>" alt="title1" class="brightness" style="height:130%;" />
+            <?php echo $apartment->NAME; ?>            
           </a>
-          </div>
         </div>
     
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -72,8 +71,8 @@
             
             <li class="dropdown">
               <a href="#" style="padding:5px 15px;" class="dropdown-toggle" data-toggle="dropdown">
-                <img class="img-circle" src="http://placehold.it/40" />
-                <?php echo $user->FULL_NAME; ?>, <?php echo $apartment->NAME; ?> <span class="caret"></span>
+                <img style="height:40px;" class="img-circle" src="http://placehold.it/100" />
+                <?php echo $user->FULL_NAME; ?><span class="caret"></span>
               </a>
               <ul class="dropdown-menu" role="menu">
                 <li><a href="<?php echo site_url(); ?>/profile"><span style="margin-right:10px;" class="glyphicon glyphicon-user"></span>My Profile</a></li>

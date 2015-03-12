@@ -23,7 +23,10 @@
     DATE_SUB
     DATE_RESOLVED
     STATUS -->
-      <table id="myTable" class="table table-striped table-hover table-bordered"> 
+    <button style="margin-top:-5px;" type="button" id="delete" class="btn btn-primary">
+      <span class="glyphicon glyphicon-delete"></span> delete
+    </button>
+      <table id="example" class="table table-striped table-hover table-bordered display"> 
         <thead> 
           <tr> 
             <th>Request ID</th> 
@@ -32,26 +35,34 @@
             <th>Submitted By</th> 
             <th>Unit Number</th>
             <th>Status</th>
-            <th>Resolved Date</th>
           </tr> 
         </thead> 
         <tbody> 
-        <?php
-        	foreach($services as $row){
-				if($row->STATUS == 'INPROG') echo "<tr class='info'>";
-				else if ($row->STATUS == 'OPEN') echo "<tr class='success'>";
-				else echo "<tr>";
-				echo "<td>". $row->ID ."</td>";
-				echo "<td>". $row->CAPTION ."</td>";
-				echo "<td>". $row->DATE_SUB ."</td>";
-				echo "<td>". $row->SUBMITTED_BY ."</td>";
-				echo "<td>". $row->UNIT_ID ."</td>";
-				echo "<td>". $row->STATUS ."</td>";
-				if($row->STATUS == 'CLOSE') echo "<td>". $row->LAST_UPDATED_DATE ."</td>";
-				else echo "<td>-</td>";
-				echo "</tr>";	
-			}
-		?>
+        
+        <tr>
+                <td>Tiger Nixon</td>
+                <td>System Architect</td>
+                <td>Edinburgh</td>
+                <td>61</td>
+                <td>2011/04/25</td>
+                <td>$320,800</td>
+            </tr>
+            <tr>
+                <td>Garrett Winters</td>
+                <td>Accountant</td>
+                <td>Tokyo</td>
+                <td>63</td>
+                <td>2011/07/25</td>
+                <td>$170,750</td>
+            </tr>
+            <tr>
+                <td>Ashton Cox</td>
+                <td>Junior Technical Author</td>
+                <td>San Francisco</td>
+                <td>66</td>
+                <td>2009/01/12</td>
+                <td>$86,000</td>
+            </tr>
         </tbody> 
   	  </table> 
       <?php echo current_url(); ?>/data1.json
@@ -185,8 +196,26 @@ $("#inputImg").on("change", function(){
     ]
 ]*/
 //$('#myTable').dataTable();
-$('#myTable').DataTable( {
+//$('#myTable').DataTable( {
     //data: data
+//} );	
+
+$(document).ready(function() {
+    var table = $('#example').DataTable();
+ 
+    $('#example tbody').on( 'click', 'tr', function () {
+        if ( $(this).hasClass('selected') ) {
+            $(this).removeClass('selected');
+        }
+        else {
+            table.$('tr.selected').removeClass('selected');
+            $(this).addClass('selected');
+        }
+    } );
+ 
+    $('#button').click( function () {
+        table.row('.selected').remove().draw( false );
+    } );
 } );	
 </script>
 

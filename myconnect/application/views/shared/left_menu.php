@@ -21,6 +21,9 @@
     <li class="<?php if($menu == 'payments'){ echo "active";} ?>">
 	  <?php echo anchor('payments', 'Payments'); ?>
     </li>
+    <li class="<?php if($menu == 'promolocal'){ echo "active";} ?>">
+	  <?php echo anchor('promos-local', 'Promo and Local Services'); ?>
+    </li>
     <!--<li class="<?php if($menu == 'about'){ echo "active";} ?>">
 	  <?php echo anchor('about', 'About Us'); ?>
     </li>

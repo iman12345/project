@@ -55,13 +55,8 @@
           <input name="login" type="submit" value="Sign in" class="btn btn-primary col-sm-2 pull-right" />
           <!--<button type="submit" class="btn btn-primary col-sm-2 pull-right">Sign in</button>-->
           <!--<a href="home" class="btn btn-primary col-sm-2 pull-right">Sign in</a>-->
-          <div style="margin: 5px 5px -5px 5px;">
-          <a href="#" style="color:#fff;" class="pull-right">Forgot Password ?</a>
-          <div class="checkbox">
-            <label>
-              <input type="checkbox"> <span style="vertical-align:top;color:#fff;">Remember me</span>
-            </label>
-          </div>
+          <div style="margin: 5px 5px -5px 5px;" class="text-right">
+            <a href="#" style="color:#fff;" data-toggle="modal" data-target="#myModal">Forgot Password ?</a>
           </div>
         <!--</form>-->
       </div><!-- /.col-sm-6 col-sm-offset-3 -->
@@ -73,5 +68,34 @@
    
 </div><!-- /.popup -->
 <!-- /. -->
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="top:20%;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Enter your E-mail address</h4>
+      </div>
+      <div class="modal-body">
+      
+		<?php echo validation_errors(); ?>
+
+		<?php echo form_open('form'); ?>
+          <div class="form-group">
+            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+          </div>
+        </form>  
+              
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+
 </body>
 </html>

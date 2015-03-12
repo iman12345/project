@@ -91,8 +91,7 @@
       
 	</footer>
 
-  </div><!-- /.container-fluid -->
-</div><!-- /.page-content-wrapper -->
+    </div><!-- /.col-sm-10 -->
 
 <script>
 

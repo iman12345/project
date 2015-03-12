@@ -54,6 +54,7 @@ $route['events'] = "events/Events_controller";
 $route['services'] = "services/Services_controller";
 $route['analytics'] = "analytics/Analytics_controller";
 $route['payments'] = "payments/Payments_controller";
+$route['promos-local'] = "promolocal/Promolocal_controller";
 
 $route['about'] = "about/About_controller";
 $route['contact'] = "contact/Contact_controller";
