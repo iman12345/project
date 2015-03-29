@@ -4,6 +4,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>MyConnect</title>
 
@@ -12,16 +13,24 @@
 <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/jquery-ui.min.css"/>
 <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/bootstrap.css"/>
 <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/sidebar.css"/>
-<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/datepicker3.css"/>
-<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/gallery-effect.css"/>
+<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/bootstrap-datepicker.css"/>
 <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/myconnect.css"/>
-<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/wireframe.css"/>
 <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/font-awesome.min.css"/>
 
 <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/jquery.js"></script>
 <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/jquery-ui.min.js"></script>
 <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/bootstrap.js"></script>
 <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/bootstrap-datepicker.js"></script>
+
+<?php if ( ($menu == 'promolocal') || ($menu == 'services') || ($menu == 'customers') || ($menu == 'profile') ) { ?>
+<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/bootstrap-editable.min.js"></script>
+<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/bootstrap-select.min.js"></script> 
+<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/jquery.validate.js"></script> 
+<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/inputmask/jquery.inputmask.js"></script> 
+<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/jquery.autoresize.js"></script> 
+<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/bootstrap-editable.css"/> 
+<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/bootstrap-select.min.css"/>
+<?php } ?>  
 
 <!-- Data Tables -->
 <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/dataTables.bootstrap.css"/>
@@ -54,7 +63,7 @@
             <span class="icon-bar"></span>
           </button>
           <a class="navbar-brand" href="home">
-          	<img src="data:image/jpeg;base64,<?php echo base64_encode($apartment->IMAGE); ?>" alt="title1" class="brightness" style="height:130%;" />
+          	<img src="<?php echo base64_encode($apartment->URL); ?>" alt="title1" class="brightness" style="height:130%;" />
             <?php echo $apartment->NAME; ?>            
           </a>
         </div>

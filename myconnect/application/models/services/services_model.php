@@ -16,7 +16,7 @@ class Services_model extends CI_Model {
     {
 		//$this->db->where('ID',$id);
 		$this->db->select('*');
-		$this->db->from('maint_reqs');
+		$this->db->from('MAINT_REQS');
         $query = $this->db->get();
         return $query->result();
     }

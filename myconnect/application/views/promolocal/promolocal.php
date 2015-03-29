@@ -12,38 +12,53 @@
             </button>
           </h1>
         </div>    
-    
-        <table id="myTable" class="table table-striped table-hover table-bordered"> 
+    	
+        <div style="overflow-x: scroll; font-size: .8em;" id="ajaxTable">
+        <table id="promoLocalTable" class="table table-striped table-hover table-bordered table-condensed"> 
           <thead> 
             <tr> 
-              <th>Request ID</th> 
-              <th>Request Caption</th> 
-              <th>Submitted Date</th> 
-              <th>Submitted By</th> 
-              <th>Unit Number</th>
-              <th>Status</th>
-              <th>Resolved Date</th>
+              <th class="no-sort"><input type="checkbox" id="checkall" value="Check All"></th>
+              <th>ID</th> 
+              <th>Apartment ID</th> 
+              <th>Type</th> 
+              <th>Name</th> 
+              <th>Description</th>
+              <th>Date</th>
+              <th>Posting ID</th>
+              <th>Image</th>
+              <th>Category</th>
+              <th>Expire Date</th>
+              <th>Created By</th>
+              <th>Created Date</th>
+              <th>Updated By</th>
+              <th>Updated Date</th>
             </tr> 
           </thead> 
           <tbody> 
-          <?php
-        	foreach($services as $row){
-				if($row->STATUS == 'INPROG') echo "<tr class='info'>";
-				else if ($row->STATUS == 'OPEN') echo "<tr class='success'>";
-				else echo "<tr>";
-				echo "<td>". $row->ID ."</td>";
-				echo "<td>". $row->CAPTION ."</td>";
-				echo "<td>". $row->DATE_SUB ."</td>";
-				echo "<td>". $row->SUBMITTED_BY ."</td>";
-				echo "<td>". $row->UNIT_ID ."</td>";
-				echo "<td>". $row->STATUS ."</td>";
-				if($row->STATUS == 'CLOSE') echo "<td>". $row->LAST_UPDATED_DATE ."</td>";
-				else echo "<td>-</td>";
-				echo "</tr>";	
-			}
-		  ?>
+			<?php
+                foreach($promolocal as $row){
+					echo "<tr>";
+                    echo "<td align='center'><input type='checkbox' class='case' tabindex='-1'></td>";
+                    echo "<td><a id='ID-".$row->ID."' class='edit' tabindex='0'>". $row->ID ."</a></td>";
+                    echo "<td><a id='APARTMENT_ID-".$row->ID."' class='edit' tabindex='0'>". $row->APARTMENT_ID ."</td>";
+                    echo "<td><a id='TYPE-".$row->ID."' class='edit' tabindex='0'>". $row->TYPE ."</td>";
+                    echo "<td><a id='NAME-".$row->ID."' class='edit' tabindex='0'>". $row->NAME ."</td>";
+                    echo "<td><a id='DESCRIPTION-".$row->ID."' class='edit' tabindex='0'>". $row->DESCRIPTION ."</td>";
+                    echo "<td><a id='DATE-".$row->ID."' class='edit' tabindex='0'>". $row->DATE ."</td>";
+					echo "<td><a id='POSTING_ID-".$row->ID."' class='edit' tabindex='0'>". $row->POSTING_ID ."</td>";
+					echo "<td><a id='IMAGE-".$row->ID."' class='edit' tabindex='0'>". $row->IMAGE ."</td>";
+					echo "<td><a id='CATEGORY-".$row->ID."' class='edit' tabindex='0'>". $row->CATEGORY ."</td>";
+					echo "<td><a id='EXPIRE_DATE-".$row->ID."' class='edit' tabindex='0'>". $row->EXPIRE_DATE ."</td>";
+					echo "<td><a id='CREATED_BY-".$row->ID."' class='edit' tabindex='0'>". $row->CREATED_BY ."</td>";
+					echo "<td><a id='CREATED_DATE-".$row->ID."' class='edit' tabindex='0'>". $row->CREATED_DATE ."</td>";
+					echo "<td><a id='LAST_UPDATED_BY-".$row->ID."' class='edit' tabindex='0'>". $row->LAST_UPDATED_BY ."</td>";
+					echo "<td><a id='LAST_UPDATED_DATE-".$row->ID."' class='edit' tabindex='0'>". $row->LAST_UPDATED_DATE ."</td>";
+                    echo "</tr>";	
+                }
+            ?>
           </tbody> 
-  	    </table> 
+  	    </table>
+        </div> 
           
       </div><!-- /.col-sm-10 -->
               
@@ -126,6 +141,8 @@ $( "#dialog-close" ).click(function() {
 });	
 
 $("#servicesDate").datepicker({
+	autoclose: true,
+    todayHighlight: true
 });
 
 $("#inputImg").on("change", function(){
@@ -142,32 +159,221 @@ $("#inputImg").on("change", function(){
 	}
 });
 
-//$("#myTable").tablesorter();
+  	var table = $('#promoLocalTable').DataTable({
+    	columnDefs: [
+      		{ targets: 'no-sort', orderable: false }
+    	],
+    	"order": [[ 1, "asc" ]],
+      pageLength: 15,    
+      "aLengthMenu": [[15, 35, 100, -1], [15, 35, 100, "All"]]
+  	}); 
 
-/*var data = [
-    [
-        "Tiger Nixon",
-        "System Architect",
-        "Edinburgh",
-        "5421",
-        "2011/04/25",
-        "$3,120",
-        "2011/04/25"
-    ],
-    [
-        "Garrett Winters",
-        "Director",
-        "Edinburgh",
-        "8422",
-        "2011/07/25",
-        "$5,300",
-        "2011/04/25"
-    ]
-]*/
-//$('#myTable').dataTable();
-$('#myTable').DataTable( {
-    //data: data
-} );	
+  	//check all
+  	$("#checkall").click(function(){
+    	$('.case').prop('checked',this.checked);
+  	});
+		
 </script>
 
+<?php 
+/**/
+	$edit_script = "<script>"; 
+  	$edit_script .= "$(document).ready(function(){";
+  	$edit_script .= "  $.fn.editable.defaults.mode = 'inline';";
+  	$edit_script .= "  $.fn.editable.defaults.showbuttons = false;";
+	$edit_script .= "  var baseurl = '".base_url()."';";
+	$edit_script .= "  var updateurl = baseurl+'index.php/promos-local/update';";
+	//$edit_script .= "alert(updateurl);";
+  	foreach ($promolocal as $row){
+  		//$edit_script .= "  $('#APARTMENT_ID-".$row->ID."').editable();";
+		$edit_script .= "$('#APARTMENT_ID-".$row->ID."').editable({
+							url: updateurl,
+							pk: ".$row->ID.",
+							validate: function(value) {
+								if($.trim(value) == '') {
+									return 'This field is required';
+								}
+							},
+							success: function(response, newValue) {
+								if(!response.success) return response.msg;
+							}
+						});";
+						
+		$edit_script .= "$('#TYPE-".$row->ID."').editable({
+							url: updateurl,
+							pk: ".$row->ID.",
+							validate: function(value) {
+								if($.trim(value) == '') {
+									return 'This field is required';
+								}
+							},
+							success: function(response, newValue) {
+								if(!response.success) return response.msg;
+							}
+						});";
+							
+  		$edit_script .= "$('#NAME-".$row->ID."').editable({
+							url: updateurl,
+							pk: ".$row->ID.",
+							validate: function(value) {
+								if($.trim(value) == '') {
+									return 'This field is required';
+								}
+							},
+							success: function(response, newValue) {
+								if(!response.success) return response.msg;
+							}
+						});";
+		
+		$edit_script .= "$('#DESCRIPTION-".$row->ID."').editable({
+							url: updateurl,
+							pk: ".$row->ID.",
+							success: function(response, newValue) {
+								if(!response.success) return response.msg;
+							}
+						});";
+		
+		$edit_script .= "$('#DATE-".$row->ID."').editable({
+							url: updateurl,
+							pk: ".$row->ID.",
+							validate: function(value) {
+								if($.trim(value) == '') {
+									return 'This field is required';
+								}
+							},
+							success: function(response, newValue) {
+								if(!response.success) return response.msg;
+							}
+						});";
+		
+		$edit_script .= "$('#POSTING_ID-".$row->ID."').editable({
+							url: updateurl,
+							pk: ".$row->ID.",
+							validate: function(value) {
+								if($.trim(value) == '') {
+									return 'This field is required';
+								}
+							},
+							success: function(response, newValue) {
+								if(!response.success) return response.msg;
+							}
+						});";
+		
+		$edit_script .= "$('#IMAGE-".$row->ID."').editable({
+							url: updateurl,
+							pk: ".$row->ID.",
+							success: function(response, newValue) {
+								if(!response.success) return response.msg;
+							}
+						});";
+		
+		$edit_script .= "$('#CATEGORY-".$row->ID."').editable({
+							url: updateurl,
+							pk: ".$row->ID.",
+							validate: function(value) {
+								if($.trim(value) == '') {
+									return 'This field is required';
+								}
+							},
+							success: function(response, newValue) {
+								if(!response.success) return response.msg;
+							}
+						});";
+		
+		$edit_script .= "$('#EXPIRE_DATE-".$row->ID."').editable({
+							url: updateurl,
+							pk: ".$row->ID.",
+							validate: function(value) {
+								if($.trim(value) == '') {
+									return 'This field is required';
+								}
+							},
+							success: function(response, newValue) {
+								if(!response.success) return response.msg;
+							}
+						});";
+		
+		$edit_script .= "$('#CREATED_BY-".$row->ID."').editable({
+							url: updateurl,
+							pk: ".$row->ID.",
+							validate: function(value) {
+								if($.trim(value) == '') {
+									return 'This field is required';
+								}
+							},
+							success: function(response, newValue) {
+								if(!response.success) return response.msg;
+							}
+						});";
+		
+		$edit_script .= "$('#CREATED_DATE-".$row->ID."').editable({
+							url: updateurl,
+							pk: ".$row->ID.",
+							validate: function(value) {
+								if($.trim(value) == '') {
+									return 'This field is required';
+								}
+							},
+							success: function(response, newValue) {
+								if(!response.success) return response.msg;
+							}
+						});";
+		
+		$edit_script .= "$('#LAST_UPDATED_BY-".$row->ID."').editable({
+							url: updateurl,
+							pk: ".$row->ID.",
+							validate: function(value) {
+								if($.trim(value) == '') {
+									return 'This field is required';
+								}
+							},
+							success: function(response, newValue) {
+								if(!response.success) return response.msg;
+							}
+						});";
+		
+		$edit_script .= "$('#LAST_UPDATED_DATE-".$row->ID."').editable({
+							url: updateurl,
+							pk: ".$row->ID.",
+							validate: function(value) {
+								if($.trim(value) == '') {
+									return 'This field is required';
+								}
+							},
+							success: function(response, newValue) {
+								if(!response.success) return response.msg;
+							}
+						});";
+						
+	}
+  	$edit_script .= "}); ";
+	$edit_script .= '</script>';
+  	echo $edit_script;
+
+?>
+
+
+<?php 
+/*
+	$js = "<script>"; 
+  	$js .= "$(document).ready(function(){";
+	$js .= "	var baseurl = '".base_url()."';";
+	$js .= "	var refurl = baseurl+'index.php/promos-local/update';";
+	$js .= "	alert(refurl);";
+	$js .= "	function refresh_blog(){
+			  		$.ajax({
+			  			url: 'refurl',
+						type: 'POST',
+						cache: false,
+			  			success: function(html){
+			  				$('#ajaxTable').html(html)
+			  			}
+			  		});
+			  	}";
+
+	$js .= "}); ";
+	$js .= '</script>';
+  	echo $js;
+*/
+?>
 

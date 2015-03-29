@@ -9,12 +9,21 @@
     <div class="page-header">
       <h1>
         <small>Maintenance Services</small>
-        <button style="margin-top:-5px;" type="button" class="btn btn-primary btn-md pull-right" data-toggle="modal" data-target="#bookModal">
+        <!--<button style="margin-top:-5px;" type="button" class="btn btn-primary btn-md pull-right" data-toggle="modal" data-target="#bookModal">
           <span class="glyphicon glyphicon-calendar"></span> Submit New Request
-        </button>
+        </button>-->
       </h1>
     </div>
         
+        <div class="row">
+		  <div class="col-sm-12 text-right">
+          
+            <button class="btn btn-success" type="submit" data-toggle="modal" data-target="#bookModal"><span class="glyphicon glyphicon-plus"></span> Add New</button>
+            <button class="btn btn-danger" type="submit"><span class="glyphicon glyphicon-trash"></span> Delete Selected Item(s)</button>
+          
+          </div>        
+        </div>
+        <br />
     <!-- content table 
     REQUEST_ID
     SUBMITTED_BY
@@ -22,47 +31,38 @@
     CAPTION
     DATE_SUB
     DATE_RESOLVED
-    STATUS -->
-    <button style="margin-top:-5px;" type="button" id="delete" class="btn btn-primary">
-      <span class="glyphicon glyphicon-delete"></span> delete
-    </button>
-      <table id="example" class="table table-striped table-hover table-bordered display"> 
+    STATUS -->    
+      <table id="myTable" class="table table-striped table-hover table-bordered"> 
         <thead> 
           <tr> 
+            <th class="no-sort"><input type="checkbox" id="checkall" value="Check All"></th>
             <th>Request ID</th> 
             <th>Request Caption</th> 
             <th>Submitted Date</th> 
             <th>Submitted By</th> 
             <th>Unit Number</th>
             <th>Status</th>
+            <th>Resolved Date</th>
           </tr> 
         </thead> 
         <tbody> 
-        
-        <tr>
-                <td>Tiger Nixon</td>
-                <td>System Architect</td>
-                <td>Edinburgh</td>
-                <td>61</td>
-                <td>2011/04/25</td>
-                <td>$320,800</td>
-            </tr>
-            <tr>
-                <td>Garrett Winters</td>
-                <td>Accountant</td>
-                <td>Tokyo</td>
-                <td>63</td>
-                <td>2011/07/25</td>
-                <td>$170,750</td>
-            </tr>
-            <tr>
-                <td>Ashton Cox</td>
-                <td>Junior Technical Author</td>
-                <td>San Francisco</td>
-                <td>66</td>
-                <td>2009/01/12</td>
-                <td>$86,000</td>
-            </tr>
+        <?php
+        	foreach($services as $row){
+				if($row->STATUS == 'INPROG') echo "<tr class='info'>";
+				else if ($row->STATUS == 'OPEN') echo "<tr class='success'>";
+				else echo "<tr>";
+				echo "<td align='center'><input type='checkbox' class='case' tabindex='-1'></td>";
+				echo "<td><a id='ID-".$row->ID."' class='edit' tabindex='0'>". $row->ID ."</a></td>";
+				echo "<td><a id='CAPTION-".$row->ID."' class='edit' tabindex='0'>". $row->CAPTION ."</td>";
+				echo "<td><a id='DATE_SUB-".$row->ID."' class='edit' tabindex='0'>". $row->DATE_SUB ."</td>";
+				echo "<td><a id='SUBMITTED_BY-".$row->ID."' class='edit' tabindex='0'>". $row->SUBMITTED_BY ."</td>";
+				echo "<td><a id='UNIT_ID-".$row->ID."' class='edit' tabindex='0'>". $row->UNIT_ID ."</td>";
+				echo "<td><a id='STATUS-".$row->ID."' class='edit' tabindex='0'>". $row->STATUS ."</td>";
+				if($row->STATUS == 'CLOSE') echo "<td>". $row->LAST_UPDATED_DATE ."</td>";
+				else echo "<td>-</td>";
+				echo "</tr>";	
+			}
+		?>
         </tbody> 
   	  </table> 
       <?php echo current_url(); ?>/data1.json
@@ -104,7 +104,7 @@
           <div class="form-group">
             <label for="servicesDate" class="col-sm-3 control-label" style="text-align:left;">Date Submitted</label>
             <div class="col-sm-8">
-              <input type="text" class="form-control" id="servicesDate" placeholder="mm/dd/yyyy" title="format : mm/dd/yyyy">
+              <input type="text" class="form-control" id="servicesDate" style="position: relative; z-index: 100000;" placeholder="mm/dd/yyyy" title="format : mm/dd/yyyy">
             </div>
           </div>
           <div class="form-group">
@@ -156,8 +156,7 @@ $( "#dialog-close" ).click(function() {
 	$( "#dialog-form" ).dialog( "close" );
 });	
 
-$("#servicesDate").datepicker({
-});
+$("#servicesDate").datepicker();
 
 $("#inputImg").on("change", function(){
 	var files = !!this.files ? this.files : [];
@@ -198,25 +197,48 @@ $("#inputImg").on("change", function(){
 //$('#myTable').dataTable();
 //$('#myTable').DataTable( {
     //data: data
-//} );	
-
-$(document).ready(function() {
-    var table = $('#example').DataTable();
- 
-    $('#example tbody').on( 'click', 'tr', function () {
-        if ( $(this).hasClass('selected') ) {
-            $(this).removeClass('selected');
-        }
-        else {
-            table.$('tr.selected').removeClass('selected');
-            $(this).addClass('selected');
-        }
-    } );
- 
-    $('#button').click( function () {
-        table.row('.selected').remove().draw( false );
-    } );
-} );	
+//} );
+  	var table = $('#myTable').DataTable({
+    	columnDefs: [
+      		{ targets: 'no-sort', orderable: false }
+    	],
+    	"order": [[ 1, "asc" ]],
+      pageLength: 15,    
+      "aLengthMenu": [[15, 35, 100, -1], [15, 35, 100, "All"]]
+  	}); 
+  	
+  	//check all
+  	$("#checkall").click(function(){
+    	$('.case').prop('checked',this.checked);
+  	});
+	
 </script>
+
+<?php 
+/**/
+	$edit_script = "<script>"; 
+  	$edit_script .= "  $.fn.editable.defaults.mode = 'inline';";
+  	$edit_script .= "  $.fn.editable.defaults.showbuttons = false;";
+  	$edit_script .= "$(document).ready(function(){";
+  	foreach ($services as $row){
+  		$edit_script .= "  $('#CAPTION-".$row->ID."').editable();";
+	}
+  	$edit_script .= "}); ";
+	$edit_script .= '</script>';
+  	echo $edit_script;
+
+?>
+<script>
+/*
+$(document).ready(function(){  
+	$('#CAPTION-1').editable();  
+	$('#CAPTION-2').editable();  
+	$('#CAPTION-3').editable();  
+	$('#CAPTION-4').editable(); 
+	$('#CAPTION-5').editable();
+}); 
+*/
+</script>
+
 
 

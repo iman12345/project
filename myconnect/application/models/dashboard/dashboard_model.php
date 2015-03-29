@@ -17,7 +17,7 @@ class Dashboard_model extends CI_Model {
 		$session_data = $this->session->userdata('logged_in');
 		$id = $session_data['id'];
 		$this->db->where('ID',$id);
-        $query = $this->db->get('profiles');
+        $query = $this->db->get('PROFILES');
         return $query->row();
     }
 	
@@ -26,13 +26,13 @@ class Dashboard_model extends CI_Model {
 		$session_data = $this->session->userdata('logged_in');
 		$id = $session_data['apartment'];
 		$this->db->where('ID',$id);
-        $query = $this->db->get('apartments');
+        $query = $this->db->get('APARTMENTS');
         return $query->row();
     }
 
 	function get_announcements()
 	{
-		$query = $this->db->get('announcements');
+		$query = $this->db->get('ANNOUNCEMENTS');
 		return $query->result();
 	}
 	
@@ -40,7 +40,7 @@ class Dashboard_model extends CI_Model {
 	{
 		$this->db->where('TYPE','PROMO');
 		$this->db->order_by('DATE', 'DESC');
-		$query = $this->db->get('promos_local_services',2);
+		$query = $this->db->get('PROMOS_LOCAL_SERVICES',2);
 		return $query->result();
 	}
 	
@@ -48,7 +48,7 @@ class Dashboard_model extends CI_Model {
 	{
 		$this->db->where('TYPE','LOCAL_SERVICES');
 		$this->db->order_by('DATE', 'DESC');
-		$query = $this->db->get('promos_local_services',2);
+		$query = $this->db->get('PROMOS_LOCAL_SERVICES',2);
 		return $query->result();
 	}
 	

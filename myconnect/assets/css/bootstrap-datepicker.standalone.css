@@ -1,14 +1,11 @@
 /*!
- * Datepicker for Bootstrap
+ * Datepicker for Bootstrap v1.4.0 (https://github.com/eternicode/bootstrap-datepicker)
  *
  * Copyright 2012 Stefan Petre
  * Improvements by Andrew Rowls
- * Licensed under the Apache License v2.0
- * http://www.apache.org/licenses/LICENSE-2.0
- *
+ * Licensed under the Apache License v2.0 (http://www.apache.org/licenses/LICENSE-2.0)
  */
 .datepicker {
-  z-index: 9999;
   padding: 4px;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
@@ -78,13 +75,9 @@
 .datepicker > div {
   display: none;
 }
-.datepicker.days div.datepicker-days {
-  display: block;
-}
-.datepicker.months div.datepicker-months {
-  display: block;
-}
-.datepicker.years div.datepicker-years {
+.datepicker.days .datepicker-days,
+.datepicker.months .datepicker-months,
+.datepicker.years .datepicker-years {
   display: block;
 }
 .datepicker table {
@@ -420,7 +413,7 @@
 .datepicker table tr td span.new {
   color: #999999;
 }
-.datepicker th.datepicker-switch {
+.datepicker .datepicker-switch {
   width: 145px;
 }
 .datepicker thead tr:first-child th,
@@ -437,15 +430,17 @@
   padding: 0 2px 0 5px;
   vertical-align: middle;
 }
-.datepicker thead tr:first-child th.cw {
+.datepicker thead tr:first-child .cw {
   cursor: default;
   background-color: transparent;
 }
+.input-append.date .add-on,
+.input-prepend.date .add-on {
+  cursor: pointer;
+}
 .input-append.date .add-on i,
 .input-prepend.date .add-on i {
-  cursor: pointer;
-  width: 16px;
-  height: 16px;
+  margin-top: 3px;
 }
 .input-daterange input {
   text-align: center;

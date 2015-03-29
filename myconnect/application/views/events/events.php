@@ -1,11 +1,11 @@
 <div id="page-content-wrapper">
   <div class="container-fluid" style="font-size:90%; zoom: 90%;">
   
-  <div class="row" style="margin-top:20px;">
+  <div class="row">
     <div class="col-sm-10" id="body">
     
   	  <!-- Analytics Header -->
-	  <div class="row clearfix">
+	  <div class="row clearfix" style="margin-top:20px;">
         <div class="col-sm-4">
             <ul class="nav nav-pills nav-justified" role="tablist" id="myTab">
               <li role="presentation" class="active">
