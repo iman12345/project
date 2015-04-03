@@ -29,15 +29,13 @@
     </div><!-- /.row -->
      
     <div class="row">
-      <div class="col-sm-6 col-sm-offset-3">
+      <div class="col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1">
       <hr />
       <?php 
 	  	echo validation_errors(); 
-	  	$attributes = array('class' => 'form-login form-inline', 'id' => 'myform', 'role' => 'form');
+	  	$attributes = array('class' => 'form-login form-inline text-center', 'id' => 'myform', 'role' => 'form');
 	  	echo form_open('landing/loginauth_controller', $attributes); 
 	  ?>
-        <!--<form class="form-login form-inline" role="form">-->
-        
           <div class="form-group">
             <div class="input-group">
               <div class="input-group-addon"><span class="glyphicon glyphicon-user"></span></div>
@@ -45,20 +43,21 @@
             </div>
           </div>
           
-          <div class="form-group" style="margin-left:15px;">
+          <div class="form-group">
             <div class="input-group">
               <div class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></div>
               <input name="password" id="password" class="form-control" type="password" placeholder="Password">
             </div>
           </div>
           
-          <input name="login" type="submit" value="Sign in" class="btn btn-primary col-sm-2 pull-right" />
+          <input name="login" type="submit" value="Sign in" class="btn btn-primary" />
           <!--<button type="submit" class="btn btn-primary col-sm-2 pull-right">Sign in</button>-->
           <!--<a href="home" class="btn btn-primary col-sm-2 pull-right">Sign in</a>-->
-          <div style="margin: 5px 5px -5px 5px;" class="text-right">
+          <div style="margin: 5px 5px -5px 5px; clear:both;" class="text-right">
             <a href="#" style="color:#fff;" data-toggle="modal" data-target="#myModal">Forgot Password ?</a>
           </div>
-        <!--</form>-->
+        </form>
+        
       </div><!-- /.col-sm-6 col-sm-offset-3 -->
     </div><!-- /.row -->
            
@@ -73,29 +72,22 @@
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="top:20%;">
   <div class="modal-dialog">
     <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Enter your E-mail address</h4>
-      </div>
       <div class="modal-body">
-      
-		<?php echo validation_errors(); ?>
-
-		<?php echo form_open('form'); ?>
+		<?php 
+			echo validation_errors();
+			$attributes = array('class' => 'form-inline text-center', 'id' => 'forgotPassForm', 'role' => 'form');
+			echo form_open('', $attributes); 
+		?>
           <div class="form-group">
-            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+            <label for="exampleInputName2">Username / Email : </label>
+            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter username or email">
           </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
         </form>  
-              
-      </div>
-      <div class="modal-footer">
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </div>
-      
-    </div>
-  </div>
-</div>
-
+      </div><!-- /.modal-body -->
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /#myModal -->
 
 </body>
 </html>

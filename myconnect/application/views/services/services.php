@@ -1,4 +1,3 @@
-<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/carousel-mini.css"/>
 
 <div id="page-content-wrapper">
   <div class="container-fluid" style="font-size:90%;">
@@ -31,11 +30,12 @@
     CAPTION
     DATE_SUB
     DATE_RESOLVED
-    STATUS -->    
-      <table id="myTable" class="table table-striped table-hover table-bordered"> 
+    STATUS --> 
+    <div style="overflow-x: scroll; font-size: .8em;" id="ajaxTable">  
+      <table id="servicesTable" class="table table-striped table-hover table-bordered table-condensed"> 
         <thead> 
           <tr> 
-            <th class="no-sort"><input type="checkbox" id="checkall" value="Check All"></th>
+            <th class="no-sort" style="text-align: center;"><input type="checkbox" id="checkall" value="Check All"></th>
             <th>Request ID</th> 
             <th>Request Caption</th> 
             <th>Submitted Date</th> 
@@ -54,10 +54,10 @@
 				echo "<td align='center'><input type='checkbox' class='case' tabindex='-1'></td>";
 				echo "<td><a id='ID-".$row->ID."' class='edit' tabindex='0'>". $row->ID ."</a></td>";
 				echo "<td><a id='CAPTION-".$row->ID."' class='edit' tabindex='0'>". $row->CAPTION ."</td>";
-				echo "<td><a id='DATE_SUB-".$row->ID."' class='edit' tabindex='0'>". $row->DATE_SUB ."</td>";
+				echo "<td><a id='DATE_SUB-".$row->ID."' class='edit' tabindex='0' data-type='combodate'>". $row->DATE_SUB ."</td>";
 				echo "<td><a id='SUBMITTED_BY-".$row->ID."' class='edit' tabindex='0'>". $row->SUBMITTED_BY ."</td>";
 				echo "<td><a id='UNIT_ID-".$row->ID."' class='edit' tabindex='0'>". $row->UNIT_ID ."</td>";
-				echo "<td><a id='STATUS-".$row->ID."' class='edit' tabindex='0'>". $row->STATUS ."</td>";
+				echo "<td><a id='STATUS-".$row->ID."' class='edit' tabindex='0' data-type='select' data-title='Select Status'>". $row->STATUS ."</td>";
 				if($row->STATUS == 'CLOSE') echo "<td>". $row->LAST_UPDATED_DATE ."</td>";
 				else echo "<td>-</td>";
 				echo "</tr>";	
@@ -65,16 +65,7 @@
 		?>
         </tbody> 
   	  </table> 
-      <?php echo current_url(); ?>/data1.json
-      <table data-toggle="table" data-url="<?php echo current_url(); ?>/data1.json" data-cache="false" data-height="299" data-sort-name="name" data-sort-order="desc">
-        <thead>
-            <tr>
-                <th data-field="id">Item ID</th>
-                <th data-field="name">Item Name</th>
-                <th data-field="price">Item Price</th>
-            </tr>
-        </thead>
-      </table>
+    </div> 
           
 </div><!-- /.col-sm-10 -->
               
@@ -143,62 +134,37 @@
 </div><!-- /.modal fade -->
 
 <script>
-$( "#dialog-form" ).dialog({
-      autoOpen: false,
-	  width: 600,
-      modal: true
-    });
+
+	$( "#dialog-form" ).dialog({
+		  autoOpen: false,
+		  width: 600,
+		  modal: true
+		});
+		
+	$( "#create-event" ).click(function() {
+		$( "#dialog-form" ).dialog( "open" );
+	});	
+	$( "#dialog-close" ).click(function() {
+		$( "#dialog-form" ).dialog( "close" );
+	});	
 	
-$( "#create-event" ).click(function() {
-	$( "#dialog-form" ).dialog( "open" );
-});	
-$( "#dialog-close" ).click(function() {
-	$( "#dialog-form" ).dialog( "close" );
-});	
-
-$("#servicesDate").datepicker();
-
-$("#inputImg").on("change", function(){
-	var files = !!this.files ? this.files : [];
-	if (!files.length || !window.FileReader) return; // no file selected, or no FileReader support
-
-	if (/^image/.test( files[0].type)){ // only image file
-		var reader = new FileReader(); // instance of the FileReader
-		reader.readAsDataURL(files[0]); // read the local file
-
-		reader.onloadend = function(){ // set image data as background of div
-			$("#imagePreview").css("background-image", "url("+this.result+")");
+	$("#servicesDate").datepicker();
+	
+	$("#inputImg").on("change", function(){
+		var files = !!this.files ? this.files : [];
+		if (!files.length || !window.FileReader) return; // no file selected, or no FileReader support
+	
+		if (/^image/.test( files[0].type)){ // only image file
+			var reader = new FileReader(); // instance of the FileReader
+			reader.readAsDataURL(files[0]); // read the local file
+	
+			reader.onloadend = function(){ // set image data as background of div
+				$("#imagePreview").css("background-image", "url("+this.result+")");
+			}
 		}
-	}
-});
+	});
 
-//$("#myTable").tablesorter();
-
-/*var data = [
-    [
-        "Tiger Nixon",
-        "System Architect",
-        "Edinburgh",
-        "5421",
-        "2011/04/25",
-        "$3,120",
-        "2011/04/25"
-    ],
-    [
-        "Garrett Winters",
-        "Director",
-        "Edinburgh",
-        "8422",
-        "2011/07/25",
-        "$5,300",
-        "2011/04/25"
-    ]
-]*/
-//$('#myTable').dataTable();
-//$('#myTable').DataTable( {
-    //data: data
-//} );
-  	var table = $('#myTable').DataTable({
+  	var table = $('#servicesTable').DataTable({
     	columnDefs: [
       		{ targets: 'no-sort', orderable: false }
     	],
@@ -206,7 +172,7 @@ $("#inputImg").on("change", function(){
       pageLength: 15,    
       "aLengthMenu": [[15, 35, 100, -1], [15, 35, 100, "All"]]
   	}); 
-  	
+
   	//check all
   	$("#checkall").click(function(){
     	$('.case').prop('checked',this.checked);
@@ -217,28 +183,113 @@ $("#inputImg").on("change", function(){
 <?php 
 /**/
 	$edit_script = "<script>"; 
+  	$edit_script .= "$(document).ready(function(){";
   	$edit_script .= "  $.fn.editable.defaults.mode = 'inline';";
   	$edit_script .= "  $.fn.editable.defaults.showbuttons = false;";
-  	$edit_script .= "$(document).ready(function(){";
+	$edit_script .= "  var baseurl = '".base_url()."';";
+	$edit_script .= "  var updateurl = baseurl+'index.php/services/update';";
+	//$edit_script .= "alert(updateurl);";
   	foreach ($services as $row){
-  		$edit_script .= "  $('#CAPTION-".$row->ID."').editable();";
+  		//$edit_script .= "  $('#APARTMENT_ID-".$row->ID."').editable();";
+		$edit_script .= "$('#ID-".$row->ID."').editable({
+							url: updateurl,
+							pk: ".$row->ID.",
+							validate: function(value) {
+								if($.trim(value) == '') {
+									return 'This field is required';
+								}
+							},
+							success: function(response, newValue) {
+								if(!response.success) return response.msg;
+							}
+						});";
+						
+		$edit_script .= "$('#CAPTION-".$row->ID."').editable({
+							url: updateurl,
+							pk: ".$row->ID.",
+							validate: function(value) {
+								if($.trim(value) == '') {
+									return 'This field is required';
+								}
+							},
+							success: function(response, newValue) {
+								if(!response.success) return response.msg;
+							}
+						});";
+						
+		$edit_script .= "$('#DATE_SUB-".$row->ID."').editable({
+							url: updateurl,
+							pk: ".$row->ID.",
+							value: '". $row->DATE_SUB ."',
+							format: 'YYYY-MM-DD',    
+							viewformat: 'DD.MM.YYYY',    
+							template: 'D / MMMM / YYYY',    
+							combodate: {
+								minYear: 2000,
+								maxYear: 2015,
+								minuteStep: 1
+							},
+							validate: function(value) {
+								if($.trim(value) == '') {
+									return 'This field is required';
+								}
+							},
+							success: function(response, newValue) {
+								if(!response.success) return response.msg;
+							}
+						});";
+						
+		$edit_script .= "$('#SUBMITTED_BY-".$row->ID."').editable({
+							url: updateurl,
+							pk: ".$row->ID.",
+							validate: function(value) {
+								if($.trim(value) == '') {
+									return 'This field is required';
+								}
+							},
+							success: function(response, newValue) {
+								if(!response.success) return response.msg;
+							}
+						});";
+						
+		$edit_script .= "$('#UNIT_ID-".$row->ID."').editable({
+							url: updateurl,
+							pk: ".$row->ID.",
+							validate: function(value) {
+								if($.trim(value) == '') {
+									return 'This field is required';
+								}
+							},
+							success: function(response, newValue) {
+								if(!response.success) return response.msg;
+							}
+						});";
+						
+		$edit_script .= "$('#STATUS-".$row->ID."').editable({
+							url: updateurl,
+							pk: ".$row->ID.",
+							value: '". $row->STATUS ."',
+							source: [
+							  {value: 'OPEN', text: 'OPEN'},
+							  {value: 'CLOSE', text: 'CLOSE'},
+							  {value: 'INPROG', text: 'INPROG'}
+						   ],
+							validate: function(value) {
+								if($.trim(value) == '') {
+									return 'This field is required';
+								}
+							},
+							success: function(response, newValue) {
+								if(!response.success) return response.msg;
+							}
+						});";
+
 	}
   	$edit_script .= "}); ";
 	$edit_script .= '</script>';
   	echo $edit_script;
 
 ?>
-<script>
-/*
-$(document).ready(function(){  
-	$('#CAPTION-1').editable();  
-	$('#CAPTION-2').editable();  
-	$('#CAPTION-3').editable();  
-	$('#CAPTION-4').editable(); 
-	$('#CAPTION-5').editable();
-}); 
-*/
-</script>
 
 
 

@@ -352,7 +352,6 @@ $("#inputImg").on("change", function(){
 
 ?>
 
-
 <?php 
 /*
 	$js = "<script>"; 

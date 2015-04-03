@@ -1,5 +1,8 @@
-
-
+<div class="menu-toggle">
+  <a href="#menu-toggle" class="" id="menu-toggle">
+    <span id="hand" class="glyphicon glyphicon-chevron-left"></span></a>
+    <span id="hand" class=""></span></a>
+</div>
 <!-- Sidebar -->
 <div id="sidebar-wrapper">
   <ul class="sidebar-nav">

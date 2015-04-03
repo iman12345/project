@@ -109,7 +109,7 @@
 
 .popup::after {
   content: "";
-  background: url(../images/sd.jpg) no-repeat;
+  background: url(../images/sd.jpg) fixed center no-repeat;
   background-size:  100% 100%;
   -webkit-filter: brightness(0.6); /* blur(1px)*/
   filter: brightness(0.6);

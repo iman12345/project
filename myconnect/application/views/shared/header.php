@@ -10,38 +10,43 @@
 
 <link rel="shortcut icon" href="<?php echo base_url(); ?>assets/images/icon2.ico" />
 
-<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/jquery-ui.min.css"/>
 <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/bootstrap.css"/>
-<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/sidebar.css"/>
 <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/bootstrap-datepicker.css"/>
+<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/bootstrap-datetimepicker.css"/>
+<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/sidebar.css"/>
 <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/myconnect.css"/>
+<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/wireframe.css"/>
 <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/font-awesome.min.css"/>
 
 <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/jquery.js"></script>
-<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/jquery-ui.min.js"></script>
 <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/bootstrap.js"></script>
+<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/moment.js"></script>
 <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/bootstrap-datepicker.js"></script>
+<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/bootstrap-datetimepicker.min.js"></script>
 
-<?php if ( ($menu == 'promolocal') || ($menu == 'services') || ($menu == 'customers') || ($menu == 'profile') ) { ?>
+
+<?php if ( ($menu == 'promolocal') || ($menu == 'services') || ($menu == 'payments') ) { ?>
+<!-- Data Tables -->
+<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/dataTables.bootstrap.css"/>
+<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/bootstrap-editable.css"/> 
+<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/bootstrap-select.min.css"/>
+
+<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/jquery.dataTables.js"></script>
+<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/dataTables.bootstrap.js"></script>
 <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/bootstrap-editable.min.js"></script>
 <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/bootstrap-select.min.js"></script> 
 <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/jquery.validate.js"></script> 
 <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/inputmask/jquery.inputmask.js"></script> 
 <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/jquery.autoresize.js"></script> 
-<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/bootstrap-editable.css"/> 
-<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/bootstrap-select.min.css"/>
 <?php } ?>  
 
-<!-- Data Tables -->
-<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/dataTables.bootstrap.css"/>
-<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/jquery.dataTables.js"></script>
-<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/dataTables.bootstrap.js"></script>
-
+<?php if ( ($menu == 'analytics') ) { ?>
 <!-- Chart -->
 <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/morrisjs/morris.css" />
 <!-- Morris Charts JavaScript -->
 <script src="<?php echo base_url(); ?>assets/raphael/raphael.min.js"></script>
 <script src="<?php echo base_url(); ?>assets/morrisjs/morris.min.js"></script>
+<?php } ?>
 
 <!--
 <script type="text/javascript" src=""></script>
@@ -56,14 +61,14 @@
       <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#sidebar-wrapper">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
           <a class="navbar-brand" href="home">
-          	<img src="<?php echo base64_encode($apartment->URL); ?>" alt="title1" class="brightness" style="height:130%;" />
+          	<img src="<?php echo $apartment->URL; ?>" alt="Apartment Logo" class="brightness" style="height:130%;" />
             <?php echo $apartment->NAME; ?>            
           </a>
         </div>

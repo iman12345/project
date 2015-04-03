@@ -51,7 +51,10 @@ $route['local-services'] = "dashboard/Dashboard_controller/local";
 
 $route['facilities'] = "facilities/Facilities_controller";
 $route['events'] = "events/Events_controller";
+
 $route['services'] = "services/Services_controller";
+$route['services/update'] = "services/Services_controller/update_entry";
+
 $route['analytics'] = "analytics/Analytics_controller";
 $route['payments'] = "payments/Payments_controller";
 

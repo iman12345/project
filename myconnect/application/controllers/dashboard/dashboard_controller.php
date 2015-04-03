@@ -11,7 +11,7 @@ class Dashboard_controller extends CI_Controller {
 		$sess_array = array(
 		  'id' => 1
 		  ,'username' => 'User 1'
-		  ,'apartment' => 'Apartment 1'
+		  ,'apartment' => '1'
 	    );
 	    $this->session->set_userdata('logged_in', $sess_array);
 		*/

@@ -17,16 +17,36 @@ class Services_controller extends CI_Controller {
 		
 		$this->load->view('shared/header', $this->data);
 		$this->load->view('shared/left_menu');
+		
+		$this->load->model('services/services_model','services',TRUE);
 	}
 
 	public function index()
 	{
-		$this->load->model('services/services_model','services',TRUE);
 		$data['services'] = $this->services->get_request();
 
 		$this->load->view('services/services',$data);
 		$this->load->view('shared/right_menu');
 		$this->load->view('shared/footer');
+	}
+	
+	public function update_entry()
+	{
+		//$col = $this->input->post('name');
+		//$colname = strstr($col, '-', true);
+		//$val = $this->input->post('value');
+
+		$input = array(
+			'pk' => $this->input->post('pk'),
+			'uid' => $session_data['id'],
+			'col' => strstr($this->input->post('name'), '-', true),
+			'val' => $this->input->post('value')
+		);
+		
+		$this->services->update_entry($input);
+		$data['services'] = $this->services->get_request();
+		
+		$this->load->view('services/services',$data);
 	}
 	
 }
